@@ -6,3 +6,5 @@ Dominos/bin/com/kami/domino/Dominoconnect$1.class
 Dominos/bin/com/kami/domino/Dominoconnect.class
 Dominos/src/com/kami/domino/DominoConnector.java
 Dominos/src/com/kami/domino/Dominoconnect.java
+LobbyView/WebSocket/target/classes/com/schindler/webSocket/serverDemo.class
+LobbyView/out/artifacts/WebSocket_war_exploded/META-INF/MANIFEST.MF

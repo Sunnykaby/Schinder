@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
     <title>Title</title>
+    <style>
+        .inputButton{
+            width:auto;
+        }
+    </style>
 </head>
 <body>
 <div>
@@ -9,11 +14,13 @@
         Server Address:<input type="text" name="serverAdd">
         <br/><br/>
         Port:<input type="text"><br/><br/>
-        <input type="button" onclick="sendMessage()">Connect to Server
+        <input type="button" onclick="sendMessage()" class="inputButton" value="Connect to Server">
     </form>
 </div>
+<br/>
+<br/>
 <div id="messageInfo">
-    Server Message
+    Server Message:
 </div>
 </body>
 <script>
@@ -34,21 +41,21 @@
 
     function onOpen(evt) {
         // console.log("Connect to the Socket Server");
-        document.getElementById("messageInfo").innerHTML += "Connection is ok!";
+        document.getElementById("messageInfo").innerText += "\nConnection is ok!";
     }
     function onClose(evt) {
         // console.log("Disconnect to the Server");
-        document.getElementById("messageInfo").innerHTML += "Connection is over";
+        document.getElementById("messageInfo").innerText += "\nConnection is over";
     }
 
     function onMessage(evt) {
         //console.log("The message is " + evt.data);
-        document.getElementById("messageInfo").innerHTML += "Message is !" + evt.data;
+        document.getElementById("messageInfo").innerText += "\nMessage is :" + evt.data;
 
     }
     function onError(evt) {
         //console.log("Error is  " + evt.data);
-        document.getElementById("messageInfo").innerHTML += "Error is !" + evt.data;
+        document.getElementById("messageInfo").innerText += "\nError is ;" + evt.data;
     }
 
     function sendMessage() {

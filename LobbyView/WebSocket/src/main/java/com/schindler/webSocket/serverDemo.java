@@ -21,18 +21,26 @@ public class serverDemo {
      * 如果有这个参数，容器将会把当前发送消息客户端的连接Session注入进去
      */
     @OnMessage
-    public void onMessage(String message, Session session) throws IOException, InterruptedException {
-        //打印从client传递的信息
-        System.out.println("Client message:" + message);
-        //向客户端发送信息
-        session.getBasicRemote().sendText("This is the first message from Server");
-        int timeCount = 0;
-        while (timeCount++ <4){
-            Thread.sleep(1000);
-            session.getBasicRemote().sendText("This is the " + timeCount +
-                    "'th message from Server!");
+    public void onMessage(String message, Session session) {
+        try {
+            //打印从client传递的信息
+            System.out.println("Client message:" + message);
+            //向客户端发送信息
+            session.getBasicRemote().sendText("This is the first message from Server");
+            int timeCount = 0;
+            while (timeCount++ <4){
+                Thread.sleep(1000);
+                session.getBasicRemote().sendText("This is the " + timeCount +
+                        "'th message from Server!");
+            }
+            session.getBasicRemote().sendText("This is the last message from Server.");
+        }catch (IOException e){
+            e.printStackTrace();
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }catch (Exception e) {
+            e.printStackTrace();
         }
-        session.getBasicRemote().sendText("This is the last message from Server.");
     }
     /**
      * 当一个新用户连接时所调用的方法

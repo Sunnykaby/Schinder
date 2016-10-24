@@ -1,0 +1,64 @@
+* {
+     box-sizing: border-box;
+}
+
+/*--escalator--*/
+
+#escalator-wrap {
+    display: block;
+    position: relative;
+    margin: 10% auto;
+    width: 600px;   /*-sets main size (adjust with media queries for higher/lower screen sizes) */
+    height: 600px;
+    border: 3px solid black;
+    overflow: hidden;
+    z-index: 1;
+    background: #C69C6D;
+
+}
+
+
+.escalator-part {
+    position: absolute;
+    width: 100%;
+}
+
+
+#left-side {
+    z-index: 3;
+}
+
+#steps {
+    z-index: 2;
+    animation: steps 0.5s linear forwards infinite;
+/*    the time of one step is 0.5, and the length of the img transform is one step
+*/}
+
+@keyframes steps {
+    from  {  transform: translate( 0%, 0%) }
+    to    {  transform: translate(-1.52%, -3.1%) }   /*-correct transform of steps-*/
+}
+
+
+
+
+/*-man-*/
+
+
+
+.man {
+    position: absolute;
+    bottom: -33%;
+    right: -2.5%;
+    width: 18%;
+    z-index: 5;
+    animation: man-steps 20.25s linear forwards 1;     /*---40.5 * steps time = time --- total step is 40.5*/
+
+}
+
+
+@keyframes man-steps {
+    from  {  transform: translate( 0%, 0%) }
+    to    {  transform: translate( -334%, -375%)   /*-correct transform of steps-*/
+
+}

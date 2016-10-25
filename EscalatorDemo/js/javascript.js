@@ -3,6 +3,10 @@ var men = document.getElementById("men");
 var removeButton = document.getElementById("button2");
 var stop = document.getElementById("stop");
 var resume = document.getElementById("resume");
+var fast = document.getElementById("fast");
+var slow = document.getElementById("slow");
+var normal = document.getElementById("normal");
+
 var menArray = ["", "newspaper-", "phone-", "relaxed-", "briefcase-"];
 
 function randomMan() {   // function to randomly choose man image
@@ -38,7 +42,27 @@ function resumeEscalator(){
 	//add stop the man
 }
 
+function fastEscalator(){
+	var es = document.getElementById("steps");
+	es.style.animationDuration = "0.25s";
+}
+
+function slowEscalator(){
+	var es = document.getElementById("steps");
+	es.style.animationDuration = "0.75s";
+}
+
+function normalEscalator(){
+	var es = document.getElementById("steps");
+	es.style.animationDuration = "0.5s";
+}
+
+
 button1.onclick = insertMan;
 button2.onclick = removeMan;
 stop.onclick = stopEscalator;
 resume.onclick = resumeEscalator;
+fast.onclick = fastEscalator;
+slow.onclick = slowEscalator;
+normal.onclick = normalEscalator;
+

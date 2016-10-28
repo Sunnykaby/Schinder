@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BoostrapDemo/BoostrapDemo.iml" filepath="$PROJECT_DIR$/BoostrapDemo/BoostrapDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/EscalatorDemo.iml" filepath="$PROJECT_DIR$/.idea/EscalatorDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EscalatorHtmlDemo/EscalatorHtmlDemo.iml" filepath="$PROJECT_DIR$/EscalatorHtmlDemo/EscalatorHtmlDemo.iml" />
+    </modules>
+  </component>
+</project>

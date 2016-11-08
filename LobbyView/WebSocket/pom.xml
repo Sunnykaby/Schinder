@@ -3,8 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.kami.schindler</groupId>
   <artifactId>lobbyView</artifactId>
-  <packaging>war</packaging>
+  <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
+  <modules>
+    <module>../WebSocketSpring</module>
+  </modules>
   <name>lobbyView Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>

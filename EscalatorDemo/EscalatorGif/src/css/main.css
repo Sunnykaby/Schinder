@@ -1,0 +1,45 @@
+* {
+     box-sizing: border-box;
+}
+
+/*--escalator--*/
+
+#escalator-wrap {
+    display: block;
+    position: relative;
+    margin: 1% auto;
+    width: 535px;   /*-sets main size (adjust with media queries for higher/lower screen sizes) */
+    height: 552px;
+    border: 3px solid black;
+    overflow: hidden;
+    z-index: 1;
+    /*background: #C69C6D;*/
+
+}
+
+#buttons{
+    position: relative;
+    margin:1% auto;
+    width:700px;
+}
+
+#speed{
+    position: relative;
+    margin: 0 auto;
+    width:100px;
+}
+
+#info{
+    position: relative;
+    margin:0 auto;
+    width: 200px;
+}
+
+
+.escalator-part {
+    position: absolute;
+    width: 100%;
+}
+
+
+

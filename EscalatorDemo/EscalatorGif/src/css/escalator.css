@@ -1,0 +1,64 @@
+@-webkit-keyframes escalator {
+    0% {
+        background-position:0;
+    }
+    100% {
+        background-position: -4280px 0;
+    }
+}
+@-moz-keyframes escalator {
+    0% {
+        background-position:0;
+    }
+    100% {
+        background-position: -4280px 0;
+    }
+}
+@keyframes escalator {
+    0% {
+        background-position:0;
+    }
+    100% {
+        background-position: -4280px 0;
+    }
+}
+
+@-webkit-keyframes escalatorReverse {
+    0% {
+        background-position:-4280px 0;
+
+    }
+    100% {
+        background-position:0;
+    }
+}
+@-moz-keyframes escalatorReverse {
+    0% {
+        background-position: -4280px 0;
+    }
+    100% {
+        background-position: 0;
+    }
+}
+@keyframes escalatorReverse {
+    0% {
+        background-position: -4280px 0;
+    }
+    100% {
+        background-position:  0;
+    }
+}
+
+#esca{
+    width:535px;
+    height:552px;
+    background-image: url("../img/total/sprite.png");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    z-index: 2;
+    -moz-animation: escalator 1s steps(8,end) infinite;
+    -webkit-animation: escalator 1s steps(8,end) infinite;
+    animation: escalator 1s steps(8,end) infinite;
+}
+
+

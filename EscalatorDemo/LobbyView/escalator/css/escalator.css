@@ -1,0 +1,160 @@
+/*for sprite demo*/
+#escalator{
+    position: absolute;
+    width: 100%;
+    background-image: url("../img/esca.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    -moz-animation: escalator 1s steps(9) infinite;
+    -webkit-animation: escalator 1s steps(9) infinite;
+    animation: escalator 1s steps(9) infinite;
+}
+
+#escalator-wrap{
+    width: 100%;
+    position: relative;
+}
+
+.hiddenImg{
+    width: 100%;
+    height: auto;
+    visibility: hidden;
+}
+
+/*sprite animation*/
+@-webkit-keyframes escalator {
+    0% {
+        background-position:0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+@-moz-keyframes escalator {
+    0% {
+        background-position:0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+@keyframes escalator {
+    0% {
+        background-position:0 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+@-webkit-keyframes escalatorReverse {
+    0% {
+        background-position:100% 0;
+
+    }
+    100% {
+        background-position:0;
+    }
+}
+@-moz-keyframes escalatorReverse {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0;
+    }
+}
+@keyframes escalatorReverse {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position:  0;
+    }
+}
+
+/*for multiple imgs demo*/
+#escalator-multi{
+    position: absolute;
+    /*background-image: url("../img/esca/01.png");*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    animation: escaPositive 1s linear infinite ;
+    /*animation: colorImg 15s infinite;*/
+}
+
+@keyframes escaPositive{
+    0%{
+        background-image: url("../img/esca/01.png");
+    }
+    10%{
+        background-image: url("../img/esca/02.png");
+    }
+    20%{
+        background-image: url("../img/esca/03.png");
+    }
+    30%{
+        background-image: url("../img/esca/04.png");
+    }
+    40%{
+        background-image: url("../img/esca/05.png");
+    }
+    50%{
+        background-image: url("../img/esca/06.png");
+    }
+    60%{
+        background-image: url("../img/esca/07.png");
+    }
+    70%{
+        background-image: url("../img/esca/08.png");
+    }
+    80%{
+        background-image: url("../img/esca/09.png");
+    }
+    90%{
+        background-image: url("../img/esca/10.png");
+    }
+    100%{
+        background-image: url("../img/esca/01.png");
+    }
+
+}
+
+@keyframes escaReverse{
+    0%{
+        background-image: url("../img/esca/10.png");
+    }
+    10%{
+        background-image: url("../img/esca/09.png");
+    }
+    20%{
+        background-image: url("../img/esca/08.png");
+    }
+    30%{
+        background-image: url("../img/esca/07.png");
+    }
+    40%{
+        background-image: url("../img/esca/06.png");
+    }
+    50%{
+        background-image: url("../img/esca/05.png");
+    }
+    60%{
+        background-image: url("../img/esca/04.png");
+    }
+    70%{
+        background-image: url("../img/esca/03.png");
+    }
+    80%{
+        background-image: url("../img/esca/02.png");
+    }
+    90%{
+        background-image: url("../img/esca/01.png");
+    }
+    100%{
+        background-image: url("../img/esca/10.png");
+    }
+
+}

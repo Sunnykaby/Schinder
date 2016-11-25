@@ -1,0 +1,48 @@
+
+#colorBar{
+    /*position: absolute;*/
+    float: left;
+    z-index: 2;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    opacity: 1;
+    animation: colorImg 8s steps(40) infinite ;
+    /*animation: colorImg 15s infinite;*/
+}
+
+@keyframes colorImg{
+    0%{
+        background-image: url("../img/LED/yellow.png");
+        opacity:1;
+    }
+    25%{
+        background-image: url("../img/LED/red.png");
+        opacity:1;
+    }
+    50%{
+        background-image: url("../img/LED/green.png");
+        opacity:1;
+    }
+    75%{
+        background-image: url("../img/LED/blue.png");
+        opacity:1;
+    }
+    100%{
+        background-image: url("../img/LED/yellow.png");
+        opacity:1;
+    }
+
+}
+
+
+#light{
+    position: absolute;
+    z-index: 3;
+    background-image: url("../img/light/pass.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    opacity: 1;
+    transition: backgroud-image 1.5s;
+}

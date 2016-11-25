@@ -1,0 +1,37 @@
+* {
+     box-sizing: border-box;
+}
+
+/*--escalator--*/
+
+#escalator-wrap {
+    display: block;
+    position: relative;
+    margin: 1% auto;
+    border: 3px solid black;
+    overflow: hidden;
+    z-index: 1;
+    /*background: #C69C6D;*/
+    /*background-color:black;*/
+}
+
+.rightBarContainer{
+	position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.rightBar{
+	
+}
+
+.esca-info-container{
+    position: relative;
+}
+
+
+
+.hiddenContainer{
+    visibility: hidden;
+}

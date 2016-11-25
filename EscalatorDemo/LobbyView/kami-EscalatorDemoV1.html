@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>LobbyView EscalatorV1</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+    <!-- Bootstrap core CSS     -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <!--  Material Dashboard CSS    -->
+    <link href="assets/css/material-dashboard.css" rel="stylesheet" />
+	<!-- Escalator CSS -->
+    <link href="escalator/css/main.css" rel="stylesheet" />
+    <link href="escalator/css/escalator.css" rel="stylesheet" />
+    <link href="escalator/css/colorbar.css" rel="stylesheet" />
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar" data-color="blue" data-image="../assets/img/sidebar-1.jpg">
+            <!--
+		        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+
+		        Tip 2: you can also add an image using data-image tag
+		    -->
+            <div class="logo">
+                <a href="http://www.schindler.com/com/internet/en/home.html" class="simple-text">
+					Schindler
+				</a>
+            </div>
+            <div class="sidebar-wrapper">
+                <ul class="nav">
+                    <li class="active">
+                        <a href="#">
+                            <i class="material-icons">dashboard</i>
+                            <p>Index</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-panel">
+            <nav class="navbar navbar-transparent navbar-absolute">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Escalator View</a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="material-icons">person</i>
+                                    <p class="hidden-lg hidden-md">Profile</p>
+                                </a>
+                            </li>
+                        </ul>
+                        <form class="navbar-form navbar-right" role="search">
+                            <div class="form-group  is-empty">
+                                <input type="text" class="form-control" placeholder="Search">
+                                <span class="material-input"></span>
+                            </div>
+                            <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                <i class="material-icons">search</i>
+                                <div class="ripple-container"></div>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <h5>Escalator Control</h5>
+                                                <div class="btn-group-vertical">
+                                                    <button class="btn btn-default" id="stop">Stop</button>
+                                                    <button class="btn btn-default" id="resume">Resume</button>
+                                                    <button class="btn btn-default" id="positive">Positive</button>
+                                                    <button class="btn btn-default" id="reverse">Reverse</button>
+                                                    <button class="btn btn-default" id="fast">Fast</button>
+                                                    <button class="btn btn-default" id="normal">Normal</button>
+                                                    <button class="btn btn-default" id="slow">Slow</button>
+                                                </div>
+                                                <h5>Color Control</h5>
+                                                <div class="btn-group-vertical">
+                                                    <button class="btn btn-default" id="stopC">Stop</button>
+                                                    <button class="btn btn-default" id="resumeC">Resume</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10">
+                                            <!-- Card for Escalator without response for size -->
+                                                <div class="card">
+                                                    <div class="card-header" data-background-color="blue">
+                                                        <h9>上海复兴工业园区11栋 No.ES00021</h9>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <div class="row esca-info-container">
+                                                            <div class="col-md-2 hiddenContainer">
+                                                                <!-- state information -->
+                                                                <div class="card card-stats">
+                                                                    <div class="card-header" data-background-color="orange">
+                                                                        <i class="material-icons">play_arrow</i>
+                                                                    </div>
+                                                                    <div class="card-content">
+                                                                        <p class="category">State</p>
+                                                                        <h3 class="title">Running</h3>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card card-stats">
+                                                                    <div class="card-header" data-background-color="green">
+                                                                        <i class="material-icons">import_export</i>
+                                                                    </div>
+                                                                    <div class="card-content">
+                                                                        <p class="category">Direction</p>
+                                                                        <h3 class="title">Forward</h3>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card card-stats">
+                                                                    <div class="card-header" data-background-color="red">
+                                                                        <i class="material-icons">timelapse</i>
+                                                                    </div>
+                                                                    <div class="card-content">
+                                                                        <p class="category">Speed</p>
+                                                                        <h3 class="title">Normal</h3>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- state information -->
+                                                            </div>
+                                                            <div class="col-md-9">
+                                                                <!-- Escalator Start -->
+                                                                <div id="escalator-wrap">
+                                                                    <div id="escalator">
+                                                                        <img class="hiddenImg" src="escalator/img/container.png">
+                                                                    </div>
+                                                                    <div id="colorBar">
+                                                                        <img class="hiddenImg" src="escalator/img/container.png">
+                                                                    </div>
+                                                                    <div id="light">
+                                                                        <img class="hiddenImg" src="escalator/img/container.png">
+                                                                    </div>
+                                                                </div>
+                                                                <!-- Escalator End -->
+                                                            </div>
+                                                            <!-- TEST -->
+                                                            	<div class="col-md-1 rightBarContainer hiddenContainer">
+                                                            			<ul class="nav nav-pills nav-pills-icons nav-stacked" role="tablist">
+                                                            				<li class="active">
+                                                            					<a href="#sinder1" role="tab" data-toggle="tab">
+                                                            						<i class="material-icons">dashboard</i>
+                                                            						Maintain&Fix
+                                                            					</a>
+                                                            				</li>
+                                                            				<li >
+                                                            			        <a href="#sinder2" role="tab" data-toggle="tab">
+                                                            						<i class="material-icons">schedule</i>
+                                                            						维修记录
+                                                            			        </a>
+                                                            			    </li>
+                                                            			</ul>
+                                                            	</div>
+                                                            <!-- TEST -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <nav class="pull-left">
+                        <ul>
+                            <li>
+                                <a href="#">
+	                                Home
+	                            </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <p class="copyright pull-right">
+                        &copy;
+                        <script>
+                        document.write(new Date().getFullYear())
+                        </script> <a href="http://www.schindler.com/com/internet/en/home.html">Schindler</a> made for better life
+                    </p>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+<!--   Core JS Files   -->
+<script src="assets/js/jquery-3.1.0.min.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="assets/js/material.min.js" type="text/javascript"></script>
+<!-- Material Dashboard javascript methods -->
+<script src="assets/js/material-dashboard.js"></script>
+<!-- Escalator javascript methods -->
+<script src="escalator/js/motion.js"></script>
+<script src="escalator/js/colorbar.js"></script>
+
+</html>

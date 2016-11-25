@@ -1,0 +1,135 @@
+#escalator-wrap{
+    width: 845px;
+    height: 678px;
+}
+#color{
+    position: relative;
+}
+#red{
+    position: absolute;
+    z-index: 1;
+    /*background-image: url("../img/colorbar/red.png");*/
+    /*background-image: url("../img/colorbar/red.png");*/
+    background-repeat: no-repeat;
+    width: 839px;
+    height: 672px;
+    opacity: 1;
+    animation: colorImg 8s steps(40) infinite ;
+    /*animation: colorImg 15s infinite;*/
+}
+
+/*#yellow{*/
+    /*position: absolute;*/
+    /*z-index: 2;*/
+    /*background-image: url("../img/colorbar/yellow.png");*/
+    /*background-repeat: no-repeat;*/
+    /*width: 839px;*/
+    /*height: 672px;*/
+    /*animation: colorOpacityReverse 2s steps(10) infinite;*/
+/*}*/
+
+/*#green{*/
+    /*position: absolute;*/
+    /*z-index: 2;*/
+    /*background-image: url("../img/colorbar/green.png");*/
+    /*background-repeat: no-repeat;*/
+    /*width: 839px;*/
+    /*height: 672px;*/
+    /*visibility: hidden;*/
+/*}*/
+
+/*#blue{*/
+    /*position: absolute;*/
+    /*z-index: 1;*/
+    /*background-image: url("../img/colorbar/blue.png");*/
+    /*background-repeat: no-repeat;*/
+    /*width: 839px;*/
+    /*height: 672px;*/
+    /*visibility: hidden;*/
+/*}*/
+
+/*@keyframes colorOpacity {*/
+    /*0% {*/
+        /*background-image: url("../img/colorbar/red.png");*/
+        /*opacity: 1;*/
+    /*}*/
+
+    /*25%{*/
+
+    /*}*/
+
+    /*50% {*/
+        /*opacity: 1;*/
+    /*}*/
+
+    /*75%{*/
+
+    /*}*/
+
+    /*100%{*/
+        /*opacity: 0;*/
+    /*}*/
+/*}*/
+
+/*@keyframes colorOpacityReverse {*/
+    /*0%{*/
+        /*background-image: url("../img/colorbar/yellow.png");*/
+        /*opacity: 0;*/
+    /*}*/
+    /*12.5%{*/
+        /*background-image: url("../img/colorbar/yellow.png");*/
+        /*opacity:1;*/
+    /*}*/
+    /*25%{*/
+        /*background-image: url("../img/colorbar/yellow.png");*/
+        /*opacity:0;*/
+    /*}*/
+    /*37.5%{*/
+        /*background-image: url("../img/colorbar/green.png");*/
+        /*opacity:1;*/
+    /*}*/
+    /*50%{*/
+        /*background-image: url("../img/colorbar/yellow.png");*/
+        /*opacity:1;*/
+    /*}*/
+    /*62.5%{*/
+        /*background-image: url("../img/colorbar/yellow.png");*/
+        /*opacity:1;*/
+    /*}*/
+    /*75%{*/
+        /*background-image: url("../img/colorbar/yellow.png");*/
+        /*opacity:1;*/
+    /*}*/
+    /*87.5%{*/
+        /*background-image: url("../img/colorbar/yellow.png");*/
+        /*opacity:1;*/
+    /*}*/
+    /*100% {*/
+        /*opacity: 1;*/
+    /*}*/
+/*}*/
+
+@keyframes colorImg{
+    0%{
+        background-image: url("../img/colorbar/yellow.png");
+        opacity:1;
+    }
+    25%{
+        background-image: url("../img/colorbar/red.png");
+        opacity:1;
+    }
+    50%{
+        background-image: url("../img/colorbar/green.png");
+        opacity:1;
+    }
+    75%{
+        background-image: url("../img/colorbar/blue.png");
+        opacity:1;
+    }
+    100%{
+        background-image: url("../img/colorbar/yellow.png");
+        opacity:1;
+    }
+
+}
+

@@ -22,12 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="WebSocketSpring" />
+        <module name="meetingRoom" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="WebSocket" target="1.5" />
-      <module name="WebSocketSpring" target="1.6" />
+      <module name="meetingRoom" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

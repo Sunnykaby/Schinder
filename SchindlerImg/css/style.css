@@ -1,0 +1,81 @@
+    /*button*/   
+   .sav {
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 10px;
+        float: left;
+    }
+    
+    .sav span.left {
+        width: 48%;
+        float: left;
+    }
+    
+    .sav span.right {
+        width: 48%;
+        float: right;
+    }
+    
+    .btn {
+        width: 100%;
+        height: 36px;
+        line-height: 36px;
+        text-align: center;
+        background: #fe8855;
+        color: #fff;
+        font-size: 18px;
+        /*border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;*/
+    }
+    
+    .btn a:link,
+    .btn a:visited {
+        color: #fff;
+        text-decoration: none;
+        height: 36px;
+        display: block;
+    }
+    
+    .btn3 {
+        width: 100%;
+        height: 36px;
+        line-height: 36px;
+        text-align: center;
+        background: #7de1bb;
+        color: #fff;
+        font-size: 18px;
+        /*border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;*/
+    }
+    
+    .btn3 a:link,
+    .btn3 a:visited {
+        color: #fff;
+        text-decoration: none;
+        height: 36px;
+        display: block;
+    }
+    
+    .btn_tnk {
+        width: 100%;
+        height: 36px;
+        line-height: 36px;
+        text-align: center;
+        background: #3bca94;
+        color: #fff;
+        font-size: 18px;
+        /*border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;*/
+    }
+    
+    .btn_tnk a:link,
+    .btn_tnk a:visited {
+        color: #fff;
+        text-decoration: none;
+        height: 36px;
+        display: block;
+    }
+    /*other*/

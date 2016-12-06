@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <style type="text/css">
+    body {
+        font-size: 70%;
+        font-family: verdana, helvetica, arial, sans-serif;
+    }
+    
+    #imgContainer {
+        float: left;
+        width: 1000px;
+        height: 1600px;
+        background: url(img/map/2/1.png);
+        background-repeat: no-repeat;
+    }
+    </style>
+    <script type="text/javascript">
+    var count = 0;
+    function cnvs_getCoordinates(e) {
+
+        x = e.clientX;
+        y = e.clientY;
+         if (count == 0) {
+            count++;
+            topPos = y;
+            leftPos = x;
+            document.getElementById("rectInfo").innerHTML = "";
+        }
+        else {
+            count = 0;
+            widthPos = e.clientX - leftPos;
+            heightPos = e.clientY - topPos;
+            document.getElementById("rectInfo").innerHTML = "Top:" + topPos +";Left:"+leftPos+";Width:"+widthPos+";Height:"+heightPos;
+        }
+        document.getElementById("xycoordinates").innerHTML = "Coordinates: (" + x + "," + y + ")";
+    }
+
+    function cnvs_clearCoordinates() {
+        document.getElementById("xycoordinates").innerHTML = "";
+    }
+    </script>
+</head>
+
+<body style="margin:0px;">
+    <div id="imgContainer" onclick="cnvs_getCoordinates(event)" onmouseout="cnvs_clearCoordinates()"></div>
+    <br />
+    <br />
+    <br />
+    <div id="xycoordinates"></div>
+    <div id = "rectInfo"></div>
+</body>
+
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>房间部署图-会议</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <style type="text/css">
+/*img和rect的容器*/
+    
+    .container {
+        position: relative;
+        left: 0px;
+        top: 0px;
+        margin: 0;
+        border: 0;
+        padding: 0;
+        width: 590px;
+        height: 750px;
+    }
+    /*最好在容器中设定大小，而不是去适应img*/
+    
+    .mapContainer {
+        position: absolute;
+        width: 590px;
+        height: 750px;
+    }
+    
+    #meetingRoom {
+        position: absolute;
+        left: 197px;
+        top: 156px;
+        width: 70px;
+        height: 140px;
+        background: #FFFF00;
+        opacity: 0.7;
+        visibility: hidden;
+        text-align: center;
+        -moz-box-shadow: 1px 1px 2px hsla(0, 0%, 0%, .3);
+        -webkit-box-shadow: 1px 1px 2px hsla(0, 0%, 0%, .3);
+        box-shadow: 1px 1px 2px hsla(0, 0%, 0%, .3);
+    }
+    
+    .roomName {
+        width: auto;
+        height: auto;
+        overflow: auto;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        font-size: 10px;
+    }
+    
+    .btn {
+        position: absolute;
+        left: 700px;
+        top: 10px;
+        width: 200px;
+    }
+    
+    .btn3 {
+        width: 200px;
+    }
+    #demoForm{
+        position: absolute;
+        left: 700px;
+        top: 100px;
+    }
+
+}
+    </style>
+    <script>
+    function isShow(flag) {
+        if (flag) {
+            var obj = document.getElementById("meetingRoom");
+            // if (obj.style.visibility=="hidden") {
+            obj.style.visibility = "visible";
+            // };
+        };
+
+    }
+
+    function isFlash(flag){
+        if (flag) {
+            var obj = document.getElementById("meetingRoom");
+            var i = 0;
+            var timer = null;
+            clearInterval(timer);
+            timer = setInterval(function(){
+                obj.style.visibility = (i++)%2?"hidden":"visible";
+                i>200&&(clearInterval(timer));
+            }, 500);
+        };
+    }
+
+    function changeRectPos(objId, leftDiff, topDiff) {
+        var obj = document.getElementById(objId);
+        obj.style.left = leftDiff + "px";
+        obj.style.top = topDiff + "px";
+    }
+
+    function changeRectByParam(objId, leftDiff, topDiff, width, height) {
+        var obj = document.getElementById(objId);
+        obj.style.left = leftDiff + "px";
+        obj.style.top = topDiff + "px";
+        obj.style.width = width + "px";
+        obj.style.height = height + "px";
+    }
+
+    function changeRect(objId) {
+        var obj = document.getElementById(objId);
+        var topElement = document.getElementsByName("top");
+        var leftElement = document.getElementsByName("left");
+        var widthElement = document.getElementsByName("width");
+        var heightElement = document.getElementsByName("height");
+
+        obj.style.left = leftElement[0].value + "px";
+        obj.style.top = topElement[0].value + "px";
+        obj.style.width = widthElement[0].value + "px";
+        obj.style.height = heightElement[0].value + "px";
+    }
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="mapContainer">
+            <!--png 590*750-->
+            <!--197,156-->
+            <!--267,297-->
+            <img src="img/schindler.png" />
+        </div>
+        <div id="meetingRoom">
+            <p class="roomName">长城会议室</p>
+        </div>
+        <form id="demoForm" action = "changeRect('meetingRoom')">
+            Top:<br>
+            <input type="text" name="top"/>
+            <br>
+            Left:<br>
+            <input type="text" name = "left"/>
+            <br>
+            Width:<br>
+            <input type="text" name = "width"/>
+            <br>
+            Height:<br>
+            <input type="text"  name = "height"/>
+            <br>
+            <br>
+            <input type="button" onclick="changeRect('meetingRoom')" value="更改会议室">
+        </form>
+        <span class="btn">
+            <!-- <div class="btn3"><a href="javascript:void(0)" onclick="changeRect('meetingRoom',100,100)">更改会议室位置</a></div> -->
+            <div class="btn3"><a href="javascript:void(0)" onclick="isFlash(true)">闪烁</a></div>
+            <!-- <div class="btn_tnk" type="button" onclick="changeRect(meetingRoom,100,100)">
+                更改会议室位置
+            </div> -->
+        </span>
+</body>
+<script>
+//这个参数可以从后台传过来，动态的设置
+isShow(true);
+</script>
+
+</html>

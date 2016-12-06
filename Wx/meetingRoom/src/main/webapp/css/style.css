@@ -1,0 +1,120 @@
+@CHARSET "UTF-8";
+    /*button*/   
+   .sav {
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 10px;
+        float: left;
+    }
+    
+    .sav span.left {
+        width: 48%;
+        float: left;
+    }
+    
+    .sav span.right {
+        width: 48%;
+        float: right;
+    }
+    
+    .btn {
+        width: 100%;
+        height: 36px;
+        line-height: 36px;
+        text-align: center;
+        background: #fe8855;
+        color: #fff;
+        font-size: 18px;
+        /*border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;*/
+    }
+    
+    .btn a:link,
+    .btn a:visited {
+        color: #fff;
+        text-decoration: none;
+        height: 36px;
+        display: block;
+    }
+    
+    .btn3 {
+        width: 100%;
+        height: 36px;
+        line-height: 36px;
+        text-align: center;
+        background: #7de1bb;
+        color: #fff;
+        font-size: 18px;
+        /*border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;*/
+    }
+    
+    .btn3 a:link,
+    .btn3 a:visited {
+        color: #fff;
+        text-decoration: none;
+        height: 36px;
+        display: block;
+    }
+    
+    .btn_tnk {
+        width: 100%;
+        height: 36px;
+        line-height: 36px;
+        text-align: center;
+        background: #3bca94;
+        color: #fff;
+        font-size: 18px;
+        /*border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;*/
+    }
+    
+    .btn_tnk a:link,
+    .btn_tnk a:visited {
+        color: #fff;
+        text-decoration: none;
+        height: 36px;
+        display: block;
+    }
+    /*other*/
+
+    .container {
+        position: relative;
+        left: 0px;
+        top: 0px;
+        margin: 0;
+        border: 0;
+        padding: 0;
+    }
+    /*最好在容器中设定大小，而不是去适应img*/
+    
+    .mapContainer {
+        position: absolute;
+    }
+    
+    #meetingRoom {
+        position: absolute;
+        background: #FFFF00;
+        opacity: 0.5;
+        visibility: hidden;
+        text-align: center;
+        -moz-box-shadow: 1px 1px 2px hsla(0, 0%, 0%, .3);
+        -webkit-box-shadow: 1px 1px 2px hsla(0, 0%, 0%, .3);
+        box-shadow: 1px 1px 2px hsla(0, 0%, 0%, .3);
+    }
+    
+    .roomName {
+        width: auto;
+        height: auto;
+        overflow: auto;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        font-size: 3vw;
+    }

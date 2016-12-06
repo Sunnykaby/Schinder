@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DemoTest/DemoTest.iml" filepath="$PROJECT_DIR$/DemoTest/DemoTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/WebSocket/WebSocket.iml" filepath="$PROJECT_DIR$/WebSocket/WebSocket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WebSocketSpring/WebSocketSpring.iml" filepath="$PROJECT_DIR$/WebSocketSpring/WebSocketSpring.iml" />
     </modules>
   </component>
 </project>

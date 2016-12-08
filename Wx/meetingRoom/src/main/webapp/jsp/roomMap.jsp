@@ -60,6 +60,7 @@
         }
     </style>
     <%
+        //会出现乱码（页面间跳转）
         String rooms = new String(request.getParameter("data").getBytes("iso-8859-1"),"utf-8");
         if (rooms == null) {
             rooms = "";

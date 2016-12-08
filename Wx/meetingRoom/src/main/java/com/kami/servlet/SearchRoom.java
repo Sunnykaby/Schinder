@@ -47,11 +47,6 @@ public class SearchRoom extends HttpServlet {
         Gson gson = new Gson();
         System.out.println(gson.toJson(lists));
         request.setAttribute("positions",gson.toJson(lists));
-        getServletContext().getRequestDispatcher("/jsp/room.jsp").forward(request,response);
-
-
-
-
-
+        getServletContext().getRequestDispatcher("/jsp/roomDemo.jsp").forward(request,response);
     }
 }

@@ -36,7 +36,7 @@ public class roomParam extends HttpServlet {
         result.put("room", request.getParameter("room"));
         request.setAttribute("param", result);
 
-        getServletContext().getRequestDispatcher("/jsp/schindler.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/jsp/schindler.jsp").forward(request, response);//this method keep request for direct
 
     }
 

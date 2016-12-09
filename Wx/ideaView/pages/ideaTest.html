@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Idea Info</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+    <!--   import css -->
+    <link rel="stylesheet" href="../lib/weui.min.css">
+    <link rel="stylesheet" href="../css/jquery-weui.css">
+    <link rel="stylesheet" href="../demos/css/demos.css">
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+<div class="page">
+    <div class="page__hd">
+        <h3 class="page__title">Innovation Submission Form</h3>
+        <p class="page__desc"></p>
+    </div>
+    <div class="weui_cells_title">General Information</div>
+    <div class="weui_cells weui_cells_form">
+        <div class="weui_cell">
+            <div class="weui_cell__hd"><label class="weui_label">ID</label></div>
+            <div class="weui_cell__bd">
+                <input id="employeeNo" class="weui_input" type="number" pattern="[0-9]*" value="500031" readonly="readonly" />
+            </div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell__hd"><label class="weui_label">Name</label></div>
+            <div class="weui_cell__bd">
+                <input id="name" class="weui_input" type="text" value="祝瑞同" readonly="readonly" />
+            </div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell__hd"><label class="weui_label">Dept</label></div>
+            <div class="weui_cell__bd">
+                <input id="dept" class="weui_input" type="text" value="HO" readonly="readonly" />
+            </div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell__hd"><label class="weui_label">Phone</label></div>
+            <div class="weui_cell__bd">
+                <input id="phone" class="weui_input" type="number" pattern="[0-9]*" placeholder="Please input your phonenumber" />
+            </div>
+        </div>
+        <div class="weui_cells__title">Field Of Application</div>
+        <div class="weui_cells weui_cells_radio">
+            <label class="weui_cell weui_check__label" for="x11">
+                <div class="weui_cell__bd">
+                    <p>Elevator</p>
+                </div>
+                <div class="weui_cell__ft">
+                    <input type="radio" class="weui_check" name="type" id="x11" value="Elevator">
+                    <span class="weui_icon-checked"></span>
+                </div>
+            </label>
+            <label class="weui_cell weui_check__label" for="x12">
+                <div class="weui_cell__bd">
+                    <p>Escalator</p>
+                </div>
+                <div class="weui_cell__ft">
+                    <input type="radio" name="type" class="weui_check" id="x12" checked="checked" value="Escalator">
+                    <span class="weui_icon-checked"></span>
+                </div>
+            </label>
+        </div>
+        <div class="weui_cells__title">Description of idea</div>
+        <div class="weui_cell">
+            <div class="weui_cell__hd"><label class="weui_label">Outline</label></div>
+            <div class="weui_cell__bd">
+                <input id="field" class="weui_input" type="text" value="" placeholder="Within 5 words" />
+            </div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell__hd"><label class="weui_label">Description</label></div>
+            <div class="weui_cell__bd">
+                <textarea id="content" class="weui_textarea" placeholder="Please describe your idea with text pictures or videos" rows="6"></textarea>
+            </div>
+        </div>
+    </div>
+    <div style="padding-left: 15px; margin-top: 5px;">
+        <a id="upload-btn" href="javascript:openUploader();" class="weui_btn weui_btn_mini weui_btn_default">Attachments</a>
+    </div>
+    <div id="imageList" style="padding-left: 15px;margin-top: 5px;">
+    </div>
+    <div class="weui_btn-area">
+        <a id="post-btn" class="weui_btn weui_btn_primary" href="javascript:submit()" id="showTooltips">Submit</a>
+    </div>
+    <input id="fileToUpload" style="display: none" type="file" name="upfile">
+</div>
+<div id="uploadingToast" style="display:none;">
+    <div class="weui_mask_transparent"></div>
+    <div class="weui_toast">
+        <i class="weui_loading weui_icon_toast"></i>
+        <p id="toastText" class="weui_toast__content">Uploading</p>
+    </div>
+</div>
+
+<!-- import js-->
+<script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/fastclick.js"></script>
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+<script src="../js/jquery-weui.js"></script>
+</body>
+</html>

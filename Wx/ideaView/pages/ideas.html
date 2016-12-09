@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Idea List</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--   import css -->
+    <link rel="stylesheet" href="../lib/weui.min.css">
+    <link rel="stylesheet" href="../css/jquery-weui.css">
+    <link rel="stylesheet" href="../demos/css/demos.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <script>
+        var ideas = {"total": 20,"currentPage":1,"totalPAge":3,"data":[
+            {
+                "id"
+                        :
+                        0, "idea"
+                    :
+                    "LobbyView", "name"
+                    :
+                    "Jacky", "time"
+                    :
+                    "2016-12-09", "like"
+                    :
+                    0
+            }
+            ,
+            {
+                "id"
+                        :
+                        1, "idea"
+                    :
+                    "LobbyView", "name"
+                    :
+                    "Jacky", "time"
+                    :
+                    "2016-12-09", "like"
+                    :
+                    0
+            },
+            {
+                "id"
+                        :
+                        2, "idea"
+                    :
+                    "LobbyView", "name"
+                    :
+                    "Jacky", "time"
+                    :
+                    "2016-12-09", "like"
+                    :
+                    0
+            },
+            {
+                "id"
+                        :
+                        3, "idea"
+                    :
+                    "LobbyView", "name"
+                    :
+                    "Jacky", "time"
+                    :
+                    "2016-12-09", "like"
+                    :
+                    2
+            },
+            {
+                "id"
+                        :
+                        4, "idea"
+                    :
+                    "LobbyView", "name"
+                    :
+                    "Jacky", "time"
+                    :
+                    "2016-12-09", "like"
+                    :
+                    1
+            }]
+        };
+        var data = ideas.data;
+
+    </script>
+</head>
+<body ontouchstart>
+<div class="weui_tab">
+    <div class="weui_tab_bd">
+        <div id="nav1" class="weui_tab_bd_item weui_tab_bd_item_active">
+            <div class="panels">
+                <div class="page__hd">
+                    <h6 class="page__title">Idea List</h6>
+                </div>
+                <div class="weui_panel" id="idea1">
+                    <div class="weui_panel_bd">
+                        <div class="weui-row weui-no-gutter">
+                            <div class="panelLeft">
+                                <div class="weui_media_box weui_media_text">
+                                    <!--<h4 class="weui_media_title">Idea Title</h4>-->
+                                    <p class="weui_media_desc">Idea Content</p>
+                                    <ul class="weui_media_info">
+                                        <li class="weui_media_info_meta">Jacky</li>
+                                        <li class="weui_media_info_meta">2016-12-09</li>
+                                        <li class="weui_media_info_meta weui_media_info_meta_extra"><a href="idea.html">详细信息</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="panelRight">
+                                <a href="javascript:;" class="imgContainer" onclick="good(1)">
+                                    <img class="imgIcon img1" src="../img/goodn.png" alt="">
+                                </a>
+                                <a href="javascript:;" class="imgContainer" onclick="bad(1)">
+                                    <img class="imgIcon img2" src="../img/badn.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="weui_panel">
+                    <div class="weui_panel_bd">
+                        <div class="weui_media_box weui_media_text">
+                            <!--<h4 class="weui_media_title">Idea Title</h4>-->
+                            <p class="weui_media_desc">Idea Content</p>
+                            <ul class="weui_media_info">
+                                <li class="weui_media_info_meta">Jacky</li>
+                                <li class="weui_media_info_meta">2016-12-09</li>
+                                <li class="weui_media_info_meta weui_media_info_meta_extra"><a href="idea.html">详细信息</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui_panel">
+                    <div class="weui_panel_bd">
+                        <div class="weui_media_box weui_media_text">
+                            <!--<h4 class="weui_media_title">Idea Title</h4>-->
+                            <p class="weui_media_desc">Idea Content</p>
+                            <ul class="weui_media_info">
+                                <li class="weui_media_info_meta">Jacky</li>
+                                <li class="weui_media_info_meta">2016-12-09</li>
+                                <li class="weui_media_info_meta weui_media_info_meta_extra"><a href="idea.html">详细信息</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui_panel">
+                    <div class="weui_panel_bd">
+                        <div class="weui_media_box weui_media_text">
+                            <!--<h4 class="weui_media_title">Idea Title</h4>-->
+                            <p class="weui_media_desc">Idea Content</p>
+                            <ul class="weui_media_info">
+                                <li class="weui_media_info_meta">Jacky</li>
+                                <li class="weui_media_info_meta">2016-12-09</li>
+                                <li class="weui_media_info_meta weui_media_info_meta_extra"><a href="idea.html">详细信息</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui_panel">
+                    <div class="weui_panel_bd">
+                        <div class="weui_media_box weui_media_text">
+                            <!--<h4 class="weui_media_title">Idea Title</h4>-->
+                            <p class="weui_media_desc">Idea Content</p>
+                            <ul class="weui_media_info">
+                                <li class="weui_media_info_meta">Jacky</li>
+                                <li class="weui_media_info_meta">2016-12-09</li>
+                                <li class="weui_media_info_meta weui_media_info_meta_extra"><a href="idea.html">详细信息</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui_panel">
+                    <div class="weui_panel_bd">
+                        <div class="weui_media_box weui_media_text">
+                            <!--<h4 class="weui_media_title">Idea Title</h4>-->
+                            <p class="weui_media_desc">Idea Content</p>
+                            <ul class="weui_media_info">
+                                <li class="weui_media_info_meta">Jacky</li>
+                                <li class="weui_media_info_meta">2016-12-09</li>
+                                <li class="weui_media_info_meta weui_media_info_meta_extra"><a href="idea.html">详细信息</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui_panel">
+                    <div class="weui_panel_bd">
+                        <div class="weui_media_box weui_media_text">
+                            <!--<h4 class="weui_media_title">Idea Title</h4>-->
+                            <p class="weui_media_desc">Idea Content</p>
+                            <ul class="weui_media_info">
+                                <li class="weui_media_info_meta">Jacky</li>
+                                <li class="weui_media_info_meta">2016-12-09</li>
+                                <li class="weui_media_info_meta weui_media_info_meta_extra"><a href="idea.html">详细信息</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="nav2" class="weui_tab_bd_item">
+            <h1 class="doc-head">通讯录</h1>
+        </div>
+        <div id="nav3" class="weui_tab_bd_item">
+            <h1 class="doc-head">发现</h1>
+        </div>
+        <div id="nav4" class="weui_tab_bd_item">
+            <h1 class="doc-head">我的</h1>
+        </div>
+    </div>
+    <div class="weui_navbar">
+        <a id="r1" href="#nav1" class="weui_navbar_item weui_bar_item_on">
+            R1
+        </a>
+        <a id="r2" href="#nav2" class="weui_navbar_item">
+            R2
+        </a>
+        <a id="r3" href="#nav3" class="weui_navbar_item">
+            R3
+        </a>
+        <a id="r4" href="#nav4" class="weui_navbar_item">
+            R4
+        </a>
+    </div>
+</div>
+
+
+
+<!-- import js-->
+<script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/fastclick.js"></script>
+<script src="../js/jquery-weui.js"></script>
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+    //like this idea
+    function good(index) {
+        $.toast(check("good"));
+
+        $("#idea"+index +" .img1").attr("src","../img/good.png");
+
+    }
+    //unlike this idea
+    function bad(index) {
+        $.toast(check("bad"));
+
+        $("#idea"+index +" .img2").attr("src","../img/bad.png");
+    }
+    //    check whether this idea evaluated
+    function check(flag) {
+        if(flag == "good")
+            return "Good";
+        else if(flag=="bad")
+            return "Bad"
+    }
+    //R1 onclick function
+    $("#r1").onclick = function () {
+        $.alert("R1")
+    }
+
+
+
+    function test() {
+        $.alert(JSON.stringify(data));
+    }
+    test();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Idea Info</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--   import css -->
+    <link rel="stylesheet" href="../lib/weui.min.css">
+    <link rel="stylesheet" href="../css/jquery-weui.css">
+    <link rel="stylesheet" href="../demos/css/demos.css">
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+<div class="page">
+    <div class="page__hd">
+        <h3 class="page__title">Innovation Submission Form</h3>
+        <p class="page__desc"></p>
+    </div>
+    <div class="weui_cells_title">General Information</div>
+    <div class="weui_cells weui_cells_form">
+        <div class="weui_cell">
+            <div class="weui_cell_hd"><label class="weui_label">ID</label></div>
+            <div class="weui_cell_bd">
+                <p class="label-text">500031</p>
+            </div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_hd"><label class="weui_label">Name</label></div>
+            <div class="weui_cell_bd">
+                <p class="label-text">500031</p>
+            </div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_hd"><label class="weui_label">Dept</label></div>
+            <div class="weui_cell_bd">
+                <p class="label-text">This is a man.</p>
+            </div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_hd"><label class="weui_label">Phone</label></div>
+            <div class="weui_cell_bd">
+                <p class="label-text">15677826358</p>
+            </div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_hd"><label class="weui_label">Filed</label></div>
+            <div class="weui_cell_bd">
+                <label class="weui_label">Elevator/Escalator</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="weui_cells_title">Discription Of Idea</div>
+    <div class="weui_cells weui_cells_form">
+        <div class="weui_cell">
+            <div class="weui_cell__hd"><label class="weui_label">Outline</label></div>
+            <div class="weui_cell__bd">
+                <p class="label-text">LobbyView Show</p>
+            </div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell__hd"><label class="weui_label">Time</label></div>
+            <div class="weui_cell__bd">
+                <p class="label-text">2016-12-09</p>
+            </div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell__hd"><label class="weui_label">Description</label></div>
+            <div class="weui_cell__bd">
+                <textarea id="content" class="weui_textarea" placeholder="This is the detail information of the idea." rows="6">More than 25 years have passed since the Soviet Union collapsed, which resulted in 15 countries being free from the central administration and the communist ideology. The three Baltic states — Estonia, Latvia, and Lithuania — were the first to declare independence and officially secede from the USSR.</textarea>
+            </div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell__hd"><label class="weui_label">Attachment</label></div>
+            <div class="weui_cell__bd">
+                <a href="javascript:;" class="weui_btn weui_btn_primary" id="pb1">Show Attachment</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- import js-->
+<script src="../lib/jquery-2.1.4.js"></script>
+<script src="../lib/fastclick.js"></script>
+<script src="../js/jquery-weui.js"></script>
+<script src="../js/swiper.js"></script>
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+    var pb1 = $.photoBrowser({
+        items: [
+            "../demos/images/swiper-1.jpg",
+            "../demos//images/swiper-2.jpg",
+            "../demos/images/swiper-3.jpg",
+            "../demos/images/swiper-4.jpg"
+        ],
+
+        onSlideChange: function(index) {
+            console.log(this, index);
+        },
+
+        onOpen: function() {
+            console.log("onOpen", this);
+        },
+        onClose: function() {
+            console.log("onClose", this);
+        }
+    });
+    $("#pb1").click(function() {
+        pb1.open();
+    });
+</script>
+
+</body>
+</html>

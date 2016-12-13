@@ -5,82 +5,81 @@
     <title>Idea List</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
     <!--   import css -->
     <link rel="stylesheet" href="../lib/weui.min.css">
     <link rel="stylesheet" href="../css/jquery-weui.css">
     <link rel="stylesheet" href="../demos/css/demos.css">
     <link rel="stylesheet" href="../css/common.css">
     <script>
-        var ideas = {"total": 20,"currentPage":1,"totalPAge":3,"data":[
-            {
-                "id"
-                        :
-                        0, "idea"
-                    :
-                    "LobbyView", "name"
-                    :
-                    "Jacky", "time"
-                    :
-                    "2016-12-09", "like"
-                    :
-                    0
-            }
-            ,
-            {
-                "id"
-                        :
-                        1, "idea"
-                    :
-                    "LobbyView", "name"
-                    :
-                    "Jacky", "time"
-                    :
-                    "2016-12-09", "like"
-                    :
-                    0
-            },
-            {
-                "id"
-                        :
-                        2, "idea"
-                    :
-                    "LobbyView", "name"
-                    :
-                    "Jacky", "time"
-                    :
-                    "2016-12-09", "like"
-                    :
-                    0
-            },
-            {
-                "id"
-                        :
-                        3, "idea"
-                    :
-                    "LobbyView", "name"
-                    :
-                    "Jacky", "time"
-                    :
-                    "2016-12-09", "like"
-                    :
-                    2
-            },
-            {
-                "id"
-                        :
-                        4, "idea"
-                    :
-                    "LobbyView", "name"
-                    :
-                    "Jacky", "time"
-                    :
-                    "2016-12-09", "like"
-                    :
-                    1
-            }]
-        };
-        var data = ideas.data;
+//        var ideas = {"total": 20,"currentPage":1,"totalPAge":3,"data":[
+//            {
+//                "id"
+//                        :
+//                        0, "idea"
+//                    :
+//                    "LobbyView", "name"
+//                    :
+//                    "Jacky", "time"
+//                    :
+//                    "2016-12-09", "like"
+//                    :
+//                    0
+//            }
+//            ,
+//            {
+//                "id"
+//                        :
+//                        1, "idea"
+//                    :
+//                    "LobbyView", "name"
+//                    :
+//                    "Jacky", "time"
+//                    :
+//                    "2016-12-09", "like"
+//                    :
+//                    0
+//            },
+//            {
+//                "id"
+//                        :
+//                        2, "idea"
+//                    :
+//                    "LobbyView", "name"
+//                    :
+//                    "Jacky", "time"
+//                    :
+//                    "2016-12-09", "like"
+//                    :
+//                    0
+//            },
+//            {
+//                "id"
+//                        :
+//                        3, "idea"
+//                    :
+//                    "LobbyView", "name"
+//                    :
+//                    "Jacky", "time"
+//                    :
+//                    "2016-12-09", "like"
+//                    :
+//                    2
+//            },
+//            {
+//                "id"
+//                        :
+//                        4, "idea"
+//                    :
+//                    "LobbyView", "name"
+//                    :
+//                    "Jacky", "time"
+//                    :
+//                    "2016-12-09", "like"
+//                    :
+//                    1
+//            }]
+//        };
+//        var data = ideas.data;
 
     </script>
 </head>
@@ -119,10 +118,6 @@
                     <!--</div>-->
                 <!--</div>-->
             </div>
-            <div class="weui-infinite-scroll">
-                <div class="infinite-preloader"></div>
-                正在加载...
-            </div>
         </div>
         <div id="nav2" class="weui_tab_bd_item">
             <h1 class="doc-head">通讯录</h1>
@@ -149,9 +144,6 @@
         </a>
     </div>
 </div>
-
-
-
 <!-- import js-->
 <script src="../lib/jquery-2.1.4.js"></script>
 <script src="../lib/fastclick.js"></script>
@@ -160,120 +152,7 @@
     $(function() {
         FastClick.attach(document.body);
     });
-    //like this idea
-    function good(index) {
-        if(check(index))
-        {
-            $.toast("Good");
-            //ajax
-            //
-            data[index].like = 1;
-            $("#idea"+index +" .img1").attr("src","../img/good.png");
-        }
-        else {
-            $.toast("Unchangable");
-        }
-    }
-    //unlike this idea
-    function bad(index) {
-        if(check(index))
-        {
-            $.toast("Bad");
-            //ajax
-            //
-            data[index].like = 2;
-            $("#idea"+index +" .img2").attr("src","../img/bad.png");
-        }
-        else {
-            $.toast("Unchangable");
-        }
-    }
-    //    check whether this idea evaluated
-    function check(index) {
-        if(data[index].like == 0) return true;
-        else return false;
-    }
-    //R1 onclick function
-    $("#r1").bind("click",function (event) {
-        alert("R1");
-        $("#panels").empty();
-        //dynamic loading the data
-        $.each(data,function (i,obj) {
-            var imgGood;
-            var imgBad;
-            if(obj.like == 0){
-                //no option
-                imgBad = "badn";
-                imgGood = "goodn";
-            }
-            else if(obj.like == 1){
-                //like
-                imgBad = "badn";
-                imgGood = "good";
-            }
-            else if(obj.like == 2){
-                //unlike
-                imgBad = "bad";
-                imgGood = "goodn";
-            }
-            var panel =" <div class=\"weui_panel\" id=\"idea" + i + "\" data-id='" + i +
-                    "'\">"+
-                    "                    <div class=\"weui_panel_bd\">"+
-                    "                        <div class=\"weui-row weui-no-gutter\">"+
-                    "                            <div class=\"panelLeft\">"+
-                    "                                <div class=\"weui_media_box weui_media_text\">"+
-                    "                                    <p class=\"weui_media_desc\"><a href=\"idea.html\">" + obj.idea +
-                    "                                       </a></p><ul class=\"weui_media_info\">"+
-                    "                                        <li class=\"weui_media_info_meta\">" + obj.name +
-                    "                                        </li><li class=\"weui_media_info_meta\">"+ obj.time +"</li>"+
-                    "                                        <li class=\"weui_media_info_meta weui_media_info_meta_extra\"><a href=\"idea.html\">详细信息</a></li>"+
-                    "                                    </ul>"+
-                    "                                </div>"+
-                    "                            </div>"+
-                    "                            <div class=\"panelRight\">"+
-                    "                                <a href=\"javascript:;\" class=\"imgContainer\" onclick=\"good("+i+")\">"+
-                    "                                    <img class=\"imgIcon img1\" src=\"../img/"+ imgGood +".png\" alt=\"\">"+
-                    "                                </a>"+
-                    "                                <a href=\"javascript:;\" class=\"imgContainer\" onclick=\"bad("+i+")\">"+
-                    "                                    <img class=\"imgIcon img2\" src=\"../img/"+ imgBad +".png\" alt=\"\">"+
-                    "                                </a>"+
-                    "                            </div>"+
-                    "                        </div>"+
-                    "                    </div>"+
-                    "                </div>";
-            $("#panels").append(panel);
-        });
-
-
-    });
-
-
-
-//    function test() {
-//        $.alert(JSON.stringify(data));
-//    }
-//    test();
-    $("#r1").click();
-    $("#nav1").infinite(50);
-
-    var loading = false;  //状态标记
-    $("#nav1").infinite().on("infinite", function() {
-        if(loading) return;
-        loading = true;
-        setTimeout(function() {
-            $("#panels").append("<p> 我是新加载的内容 </p>");
-            $("#panels").append("<p> 我是新加载的内容 </p>");
-            $("#panels").append("<p> 我是新加载的内容 </p>");
-            $("#panels").append("<p> 我是新加载的内容 </p>");
-            $("#panels").append("<p> 我是新加载的内容 </p>");
-            $("#panels").append("<p> 我是新加载的内容 </p>");
-            $("#panels").append("<p> 我是新加载的内容 </p>");
-            $("#panels").append("<p> 我是新加载的内容 </p>");
-            loading = false;
-        }, 1500);   //模拟延迟
-    });
-
-
 </script>
+<script src="../js/ideas.js"></script>
 </body>
 </html>

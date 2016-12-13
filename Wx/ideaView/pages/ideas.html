@@ -88,10 +88,10 @@
 <div class="weui_tab">
     <div class="weui_tab_bd">
         <div id="nav1" class="weui_tab_bd_item weui_tab_bd_item_active">
-            <div class="panels">
-                <div class="page__hd">
-                    <h6 class="page__title">Idea List</h6>
-                </div>
+            <div class="page__hd">
+                <h6 class="page__title">Idea List</h6>
+            </div>
+            <div class="content-padded" id="panels">
                 <!--<div class="weui_panel" id="idea1">-->
                     <!--<div class="weui_panel_bd">-->
                         <!--<div class="weui-row weui-no-gutter">-->
@@ -118,6 +118,10 @@
 
                     <!--</div>-->
                 <!--</div>-->
+            </div>
+            <div class="weui-infinite-scroll">
+                <div class="infinite-preloader"></div>
+                正在加载...
             </div>
         </div>
         <div id="nav2" class="weui_tab_bd_item">
@@ -192,6 +196,7 @@
     //R1 onclick function
     $("#r1").bind("click",function (event) {
         alert("R1");
+        $("#panels").empty();
         //dynamic loading the data
         $.each(data,function (i,obj) {
             var imgGood;
@@ -236,17 +241,39 @@
                     "                        </div>"+
                     "                    </div>"+
                     "                </div>";
-            $(".panels").append(panel);
+            $("#panels").append(panel);
         });
 
 
     });
 
-    function test() {
-        $.alert(JSON.stringify(data));
-    }
-    test();
+
+
+//    function test() {
+//        $.alert(JSON.stringify(data));
+//    }
+//    test();
     $("#r1").click();
+    $("#nav1").infinite(50);
+
+    var loading = false;  //状态标记
+    $("#nav1").infinite().on("infinite", function() {
+        if(loading) return;
+        loading = true;
+        setTimeout(function() {
+            $("#panels").append("<p> 我是新加载的内容 </p>");
+            $("#panels").append("<p> 我是新加载的内容 </p>");
+            $("#panels").append("<p> 我是新加载的内容 </p>");
+            $("#panels").append("<p> 我是新加载的内容 </p>");
+            $("#panels").append("<p> 我是新加载的内容 </p>");
+            $("#panels").append("<p> 我是新加载的内容 </p>");
+            $("#panels").append("<p> 我是新加载的内容 </p>");
+            $("#panels").append("<p> 我是新加载的内容 </p>");
+            loading = false;
+        }, 1500);   //模拟延迟
+    });
+
+
 </script>
 </body>
 </html>

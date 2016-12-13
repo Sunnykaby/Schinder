@@ -1,0 +1,75 @@
+html {
+    height: 100%;    
+}
+
+body {
+    font-size: 14px;
+    font-family: verdana,helvetica,arial,sans-serif;
+    height: 100%;
+}
+
+.panel-body {
+    font-size: 14px;
+}
+
+.textbox
+.textbox-text {
+    font-size: 14px;
+}
+
+.l-btn-text {
+    font-size: 14px;
+}
+
+.page__hd {
+    padding: 10px;
+    background-color: #EDEDED;
+}
+
+.weui_textarea {
+    font-size: 14px;
+    font-family: verdana,helvetica,arial,sans-serif;
+}
+
+#imageList {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.page__title{
+    text-align: center;
+}
+.label-text{
+    text-align: center;
+}
+
+.panelLeft{
+    width: 70%;
+}
+.panelRight{
+    position: relative;
+    right: 0;
+    width: 30%;
+}
+
+.imgIcon{
+    width: 100%;
+    height: auto;
+}
+
+.imgContainer{
+    float: left;
+    width: 30%;
+    margin-left:10%;
+    margin-top:20%;
+    /*margin-bottom: auto;*/
+    /*top: 50%;*/
+    /*transform: translateY(-50%);*/
+}
+
+.textArea {
+    -webkit-line-clamp:100!important;
+}
+#panels{
+    height: 94%;
+}

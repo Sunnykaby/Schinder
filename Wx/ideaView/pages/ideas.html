@@ -8,89 +8,20 @@
     <!--   import css -->
     <link rel="stylesheet" href="../lib/weui.min.css">
     <link rel="stylesheet" href="../css/jquery-weui.css">
-    <link rel="stylesheet" href="../demos/css/demos.css">
     <link rel="stylesheet" href="../css/common.css">
-    <script>
-//        var ideas = {"total": 20,"currentPage":1,"totalPAge":3,"data":[
-//            {
-//                "id"
-//                        :
-//                        0, "idea"
-//                    :
-//                    "LobbyView", "name"
-//                    :
-//                    "Jacky", "time"
-//                    :
-//                    "2016-12-09", "like"
-//                    :
-//                    0
-//            }
-//            ,
-//            {
-//                "id"
-//                        :
-//                        1, "idea"
-//                    :
-//                    "LobbyView", "name"
-//                    :
-//                    "Jacky", "time"
-//                    :
-//                    "2016-12-09", "like"
-//                    :
-//                    0
-//            },
-//            {
-//                "id"
-//                        :
-//                        2, "idea"
-//                    :
-//                    "LobbyView", "name"
-//                    :
-//                    "Jacky", "time"
-//                    :
-//                    "2016-12-09", "like"
-//                    :
-//                    0
-//            },
-//            {
-//                "id"
-//                        :
-//                        3, "idea"
-//                    :
-//                    "LobbyView", "name"
-//                    :
-//                    "Jacky", "time"
-//                    :
-//                    "2016-12-09", "like"
-//                    :
-//                    2
-//            },
-//            {
-//                "id"
-//                        :
-//                        4, "idea"
-//                    :
-//                    "LobbyView", "name"
-//                    :
-//                    "Jacky", "time"
-//                    :
-//                    "2016-12-09", "like"
-//                    :
-//                    1
-//            }]
-//        };
-//        var data = ideas.data;
-
-    </script>
+    <link rel="stylesheet" href="../css/dropload.css">
 </head>
 <body ontouchstart>
 <div class="weui_tab">
     <div class="weui_tab_bd">
-        <div id="nav1" class="weui_tab_bd_item weui_tab_bd_item_active">
+        <div id="nav0" class="weui_tab_bd_item weui_tab_bd_item_active">
             <div class="page__hd">
                 <h6 class="page__title">Idea List</h6>
             </div>
-            <div class="content-padded" id="panels">
+            <div class="content-padded">
+                <div class="panels">
+                </div>
+                <!--static panel demo-->
                 <!--<div class="weui_panel" id="idea1">-->
                     <!--<div class="weui_panel_bd">-->
                         <!--<div class="weui-row weui-no-gutter">-->
@@ -119,27 +50,45 @@
                 <!--</div>-->
             </div>
         </div>
+        <div id="nav1" class="weui_tab_bd_item">
+            <div class="page__hd">
+                <h6 class="page__title">Idea List</h6>
+            </div>
+            <div class="content-padded">
+                <div class="panels">
+                </div>
+            </div>
+        </div>
         <div id="nav2" class="weui_tab_bd_item">
-            <h1 class="doc-head">通讯录</h1>
+            <div class="page__hd">
+                <h6 class="page__title">Idea List</h6>
+            </div>
+            <div class="content-padded">
+                <div class="panels">
+                </div>
+            </div>
         </div>
         <div id="nav3" class="weui_tab_bd_item">
-            <h1 class="doc-head">发现</h1>
-        </div>
-        <div id="nav4" class="weui_tab_bd_item">
-            <h1 class="doc-head">我的</h1>
+            <div class="page__hd">
+                <h6 class="page__title">Idea List</h6>
+            </div>
+            <div class="content-padded">
+                <div class="panels">
+                </div>
+            </div>
         </div>
     </div>
     <div class="weui_navbar">
-        <a id="r1" href="#nav1" class="weui_navbar_item weui_bar_item_on">
+        <a id="r1" href="#nav0" class="weui_navbar_item weui_bar_item_on">
             R1
         </a>
-        <a id="r2" href="#nav2" class="weui_navbar_item">
+        <a id="r2" href="#nav1" class="weui_navbar_item">
             R2
         </a>
-        <a id="r3" href="#nav3" class="weui_navbar_item">
+        <a id="r3" href="#nav2" class="weui_navbar_item">
             R3
         </a>
-        <a id="r4" href="#nav4" class="weui_navbar_item">
+        <a id="r4" href="#nav3" class="weui_navbar_item">
             R4
         </a>
     </div>
@@ -147,7 +96,8 @@
 <!-- import js-->
 <script src="../lib/jquery-2.1.4.js"></script>
 <script src="../lib/fastclick.js"></script>
-<script src="../js/jquery-weui.js"></script>
+<script src="../js/jquery-weui.min.js"></script>
+<script src="../js/dropload.js"></script>
 <script>
     $(function() {
         FastClick.attach(document.body);

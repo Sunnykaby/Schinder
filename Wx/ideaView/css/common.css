@@ -53,7 +53,7 @@ body {
 }
 
 .imgIcon{
-    width: 100%;
+    width: 90%;
     height: auto;
 }
 
@@ -61,15 +61,19 @@ body {
     float: left;
     width: 30%;
     margin-left:10%;
-    margin-top:20%;
-    /*margin-bottom: auto;*/
-    /*top: 50%;*/
-    /*transform: translateY(-50%);*/
+    margin-top:23%;
 }
 
 .textArea {
     -webkit-line-clamp:100!important;
 }
-#panels{
-    height: 94%;
+.panels{
+
+}
+.content-padded{
+    height: 95%;
+    overflow-y: scroll;
+}
+.weui_tab_bd .weui_tab_bd_item{
+    overflow-y: hidden!important;
 }

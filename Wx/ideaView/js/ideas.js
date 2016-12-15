@@ -51,10 +51,9 @@ function check(index) {
 $(".weui_navbar_item").bind("click",function (event) {
     var $this  = $(this);
     itemIndex = $this.index();
-
+    curPage = 0;
     // r1
     if(itemIndex == '0'){
-        curPage = 0;
         // 如果数据没有加载完
         if(!nav1LoadEnd){
             // 解锁
@@ -113,7 +112,7 @@ $(".weui_navbar_item").bind("click",function (event) {
     // dropload.resetload();
 });
 
-var dropload1 = $('.nav0 .content-padded').dropload({
+var dropload1 = $('.content-padded1').dropload({
     // scrollArea:window,
     autoLoad:true,
     distance:50,
@@ -220,9 +219,9 @@ var dropload1 = $('.nav0 .content-padded').dropload({
     }
 });
 
-var dropload2 = $('.nav1 .content-padded').dropload({
+var dropload2 = $('.content-padded2').dropload({
     // scrollArea:window,
-    autoLoad:true,
+    autoLoad:false,
     distance:50,
     threshold:50,
     domUp:{
@@ -293,7 +292,7 @@ var dropload2 = $('.nav1 .content-padded').dropload({
         else{
             curPage++;
             if(curPage>pages){
-                nav1LoadEnd = true;
+                nav2LoadEnd = true;
                 me.lock();
                 me.noData();
                 me.resetload();
@@ -327,9 +326,9 @@ var dropload2 = $('.nav1 .content-padded').dropload({
     }
 });
 
-var dropload3 = $('.nav2 .content-padded').dropload({
+var dropload3 = $('#nav2 .content-padded').dropload({
     // scrollArea:window,
-    autoLoad:true,
+    autoLoad:false,
     distance:50,
     threshold:50,
     domUp:{
@@ -400,7 +399,7 @@ var dropload3 = $('.nav2 .content-padded').dropload({
         else{
             curPage++;
             if(curPage>pages){
-                nav1LoadEnd = true;
+                nav3LoadEnd = true;
                 me.lock();
                 me.noData();
                 me.resetload();
@@ -434,9 +433,9 @@ var dropload3 = $('.nav2 .content-padded').dropload({
     }
 });
 
-var dropload4 = $('.nav3 .content-padded').dropload({
+var dropload4 = $('#nav3 .content-padded').dropload({
     // scrollArea:window,
-    autoLoad:true,
+    autoLoad:false,
     distance:50,
     threshold:50,
     domUp:{
@@ -507,7 +506,7 @@ var dropload4 = $('.nav3 .content-padded').dropload({
         else{
             curPage++;
             if(curPage>pages){
-                nav1LoadEnd = true;
+                nav4LoadEnd = true;
                 me.lock();
                 me.noData();
                 me.resetload();
@@ -545,7 +544,7 @@ function refreshIdeas(datas, flag){
     if(datas.length <= 0) return false;
     if(flag == 0){
         //reload
-        $(".nav"+itemIndex+" #panels").empty();
+        $("#nav"+itemIndex+" #panels").empty();
     }
     else{
         //more
@@ -603,8 +602,8 @@ function refreshIdeas(datas, flag){
             "                </div>";
         ideasNum++;
     });
-    if(flag==0) $(".nav"+itemIndex+" .panels").html(panel);
-    else $(".nav"+itemIndex+" .panels").append(panel);
+    if(flag==0) $("#nav"+itemIndex+" .panels").html(panel);
+    else $("#nav"+itemIndex+" .panels").append(panel);
     return true;
 }
 

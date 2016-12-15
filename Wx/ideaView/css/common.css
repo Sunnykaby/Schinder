@@ -74,6 +74,16 @@ body {
     height: 95%;
     overflow-y: scroll;
 }
+
+.content-padded1{
+     height: 95%;
+     overflow-y: scroll;
+ }
+.content-padded2{
+    height: 95%;
+    overflow-y: scroll;
+}
+
 .weui_tab_bd .weui_tab_bd_item{
     overflow-y: hidden!important;
 }

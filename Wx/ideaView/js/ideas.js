@@ -57,66 +57,58 @@ $(".weui_navbar_item").bind("click",function (event) {
         // 如果数据没有加载完
         if(!nav1LoadEnd){
             // 解锁
-            dropload1.unlock();
-            dropload1.noData(false);
+            dropload.unlock();
+            dropload.noData(false);
         }else{
             // 锁定
-            dropload1.lock('down');
-            dropload1.noData();
+            dropload.lock('down');
+            dropload.noData();
         }
-        // 重置
-        dropload1.resetload();
         // r2
     }else if(itemIndex == '1'){
         if(!nav2LoadEnd){
             // 解锁
-            dropload2.unlock();
-            dropload2.noData(false);
+            dropload.unlock();
+            dropload.noData(false);
         }else{
             // 锁定
-            dropload2.lock('down');
-            dropload2.noData();
+            dropload.lock('down');
+            dropload.noData();
         }
-        // 重置
-        dropload2.resetload();
     }
     //r3
     else if(itemIndex == '2'){
         if(!nav3LoadEnd){
             // 解锁
-            dropload3.unlock();
-            dropload3.noData(false);
+            dropload.unlock();
+            dropload.noData(false);
         }else{
             // 锁定
-            dropload3.lock('down');
-            dropload3.noData();
+            dropload.lock('down');
+            dropload.noData();
         }
-        // 重置
-        dropload3.resetload();
     }
     //r4
     else if(itemIndex == '3'){
         if(!nav4LoadEnd){
             // 解锁
-            dropload4.unlock();
-            dropload4.noData(false);
+            dropload.unlock();
+            dropload.noData(false);
         }else{
             // 锁定
-            dropload4.lock('down');
-            dropload4.noData();
+            dropload.lock('down');
+            dropload.noData();
         }
-        // 重置
-        dropload4.resetload();
     }
     // 重置
-    // dropload.resetload();
+    dropload.resetload();
 });
 
-var dropload1 = $('.content-padded1').dropload({
+var dropload = $('.content-padded').dropload({
     // scrollArea:window,
     autoLoad:true,
     distance:50,
-    threshold:50,
+    // threshold:50,
     domUp:{
         domClass : 'dropload-up',
         domRefresh : '<div class="dropload-refresh">↓下拉刷新</div>',
@@ -162,7 +154,6 @@ var dropload1 = $('.content-padded1').dropload({
                 url:'../json/page1.json',
                 dataType:'json',
                 success:function (data) {
-
                     total = data.total;
                     pages = data.totalPage;
                     curPage = data.currentPage;
@@ -219,332 +210,12 @@ var dropload1 = $('.content-padded1').dropload({
     }
 });
 
-var dropload2 = $('.content-padded2').dropload({
-    // scrollArea:window,
-    autoLoad:false,
-    distance:50,
-    threshold:50,
-    domUp:{
-        domClass : 'dropload-up',
-        domRefresh : '<div class="dropload-refresh">↓下拉刷新</div>',
-        domUpdate : '<div class="dropload-update">↑释放更新</div>',
-        domLoad : '<div class="dropload-load"><span class="loading"></span>加载中...</div>'
-    },
-    domDown:{
-        domClass : 'dropload-down',
-        domRefresh : '<div class="dropload-refresh">↑上拉加载更多</div>',
-        domLoad : '<div class="dropload-load"><span class="loading"></span>加载中...</div>',
-        domNoData : '<div class="dropload-noData">暂无数据</div>'
-    },
-    loadUpFn:function (me) {
-        //first loading
-        $.ajax({
-            type:'GET',
-            url:'../json/page1.json',
-            dataType:'json',
-            success:function (data) {
-                total = data.total;
-                pages = data.totalPage;
-                curPage = data.currentPage;
-                ideasJson = data.data;
-                setTimeout(function () {
-
-                },3000);
-                refreshIdeas(data.data,0);
-                me.resetload();
-                me.unlock();
-                me.noData(false);
-            },
-            error:function (xhr, type) {
-                alert('Ajax Error!');
-                me.resetload();
-            }
-        });
-    },
-    loadDownFn:function (me) {
-        if(curPage==0){
-            //if first time
-            $.ajax({
-                type:'GET',
-                url:'../json/page1.json',
-                dataType:'json',
-                success:function (data) {
-
-                    total = data.total;
-                    pages = data.totalPage;
-                    curPage = data.currentPage;
-                    ideasJson = data.data;
-                    setTimeout(function () {
-
-                    },3000);
-                    refreshIdeas(data.data,0);
-                    me.unlock();
-                    me.noData(false);
-                    me.resetload();
-                },
-                error:function (xhr, type) {
-                    alert('Ajax Error!');
-                    me.resetload();
-                }
-            });
-        }
-        //more
-        else{
-            curPage++;
-            if(curPage>pages){
-                nav2LoadEnd = true;
-                me.lock();
-                me.noData();
-                me.resetload();
-                return;
-            }
-            $.ajax({
-                type:'GET',
-                url:'../json/page'+curPage+'.json',
-                dataType:'json',
-                success:function (data) {
-                    ideasJson = data.data;
-                    setTimeout(function () {
-
-                    },3000);
-                    if(refreshIdeas(data.data,1)){
-                        loaded = true;
-                    }
-                    else{
-                        me.lock();
-                        me.noData();
-                    }
-                    me.resetload();
-                },
-                error:function (xhr, type) {
-                    alert('Ajax Error!');
-                    me.resetload();
-                }
-
-            });
-        }
-    }
-});
-
-var dropload3 = $('#nav2 .content-padded').dropload({
-    // scrollArea:window,
-    autoLoad:false,
-    distance:50,
-    threshold:50,
-    domUp:{
-        domClass : 'dropload-up',
-        domRefresh : '<div class="dropload-refresh">↓下拉刷新</div>',
-        domUpdate : '<div class="dropload-update">↑释放更新</div>',
-        domLoad : '<div class="dropload-load"><span class="loading"></span>加载中...</div>'
-    },
-    domDown:{
-        domClass : 'dropload-down',
-        domRefresh : '<div class="dropload-refresh">↑上拉加载更多</div>',
-        domLoad : '<div class="dropload-load"><span class="loading"></span>加载中...</div>',
-        domNoData : '<div class="dropload-noData">暂无数据</div>'
-    },
-    loadUpFn:function (me) {
-        //first loading
-        $.ajax({
-            type:'GET',
-            url:'../json/page1.json',
-            dataType:'json',
-            success:function (data) {
-                total = data.total;
-                pages = data.totalPage;
-                curPage = data.currentPage;
-                ideasJson = data.data;
-                setTimeout(function () {
-
-                },3000);
-                refreshIdeas(data.data,0);
-                me.resetload();
-                me.unlock();
-                me.noData(false);
-            },
-            error:function (xhr, type) {
-                alert('Ajax Error!');
-                me.resetload();
-            }
-        });
-    },
-    loadDownFn:function (me) {
-        if(curPage==0){
-            //if first time
-            $.ajax({
-                type:'GET',
-                url:'../json/page1.json',
-                dataType:'json',
-                success:function (data) {
-
-                    total = data.total;
-                    pages = data.totalPage;
-                    curPage = data.currentPage;
-                    ideasJson = data.data;
-                    setTimeout(function () {
-
-                    },3000);
-                    refreshIdeas(data.data,0);
-                    me.unlock();
-                    me.noData(false);
-                    me.resetload();
-                },
-                error:function (xhr, type) {
-                    alert('Ajax Error!');
-                    me.resetload();
-                }
-            });
-        }
-        //more
-        else{
-            curPage++;
-            if(curPage>pages){
-                nav3LoadEnd = true;
-                me.lock();
-                me.noData();
-                me.resetload();
-                return;
-            }
-            $.ajax({
-                type:'GET',
-                url:'../json/page'+curPage+'.json',
-                dataType:'json',
-                success:function (data) {
-                    ideasJson = data.data;
-                    setTimeout(function () {
-
-                    },3000);
-                    if(refreshIdeas(data.data,1)){
-                        loaded = true;
-                    }
-                    else{
-                        me.lock();
-                        me.noData();
-                    }
-                    me.resetload();
-                },
-                error:function (xhr, type) {
-                    alert('Ajax Error!');
-                    me.resetload();
-                }
-
-            });
-        }
-    }
-});
-
-var dropload4 = $('#nav3 .content-padded').dropload({
-    // scrollArea:window,
-    autoLoad:false,
-    distance:50,
-    threshold:50,
-    domUp:{
-        domClass : 'dropload-up',
-        domRefresh : '<div class="dropload-refresh">↓下拉刷新</div>',
-        domUpdate : '<div class="dropload-update">↑释放更新</div>',
-        domLoad : '<div class="dropload-load"><span class="loading"></span>加载中...</div>'
-    },
-    domDown:{
-        domClass : 'dropload-down',
-        domRefresh : '<div class="dropload-refresh">↑上拉加载更多</div>',
-        domLoad : '<div class="dropload-load"><span class="loading"></span>加载中...</div>',
-        domNoData : '<div class="dropload-noData">暂无数据</div>'
-    },
-    loadUpFn:function (me) {
-        //first loading
-        $.ajax({
-            type:'GET',
-            url:'../json/page1.json',
-            dataType:'json',
-            success:function (data) {
-                total = data.total;
-                pages = data.totalPage;
-                curPage = data.currentPage;
-                ideasJson = data.data;
-                setTimeout(function () {
-
-                },3000);
-                refreshIdeas(data.data,0);
-                me.resetload();
-                me.unlock();
-                me.noData(false);
-            },
-            error:function (xhr, type) {
-                alert('Ajax Error!');
-                me.resetload();
-            }
-        });
-    },
-    loadDownFn:function (me) {
-        if(curPage==0){
-            //if first time
-            $.ajax({
-                type:'GET',
-                url:'../json/page1.json',
-                dataType:'json',
-                success:function (data) {
-
-                    total = data.total;
-                    pages = data.totalPage;
-                    curPage = data.currentPage;
-                    ideasJson = data.data;
-                    setTimeout(function () {
-
-                    },3000);
-                    refreshIdeas(data.data,0);
-                    me.unlock();
-                    me.noData(false);
-                    me.resetload();
-                },
-                error:function (xhr, type) {
-                    alert('Ajax Error!');
-                    me.resetload();
-                }
-            });
-        }
-        //more
-        else{
-            curPage++;
-            if(curPage>pages){
-                nav4LoadEnd = true;
-                me.lock();
-                me.noData();
-                me.resetload();
-                return;
-            }
-            $.ajax({
-                type:'GET',
-                url:'../json/page'+curPage+'.json',
-                dataType:'json',
-                success:function (data) {
-                    ideasJson = data.data;
-                    setTimeout(function () {
-
-                    },3000);
-                    if(refreshIdeas(data.data,1)){
-                        loaded = true;
-                    }
-                    else{
-                        me.lock();
-                        me.noData();
-                    }
-                    me.resetload();
-                },
-                error:function (xhr, type) {
-                    alert('Ajax Error!');
-                    me.resetload();
-                }
-
-            });
-        }
-    }
-});
 
 function refreshIdeas(datas, flag){
     if(datas.length <= 0) return false;
     if(flag == 0){
         //reload
-        $("#nav"+itemIndex+" #panels").empty();
+        // $("#nav"+itemIndex+" .panels").empty();
     }
     else{
         //more

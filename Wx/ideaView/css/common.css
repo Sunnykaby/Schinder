@@ -68,20 +68,16 @@ body {
     -webkit-line-clamp:100!important;
 }
 .panels{
-
+    /*height: 95%;*/
+    /*overflow-y: scroll;*/
 }
 .content-padded{
     height: 95%;
     overflow-y: scroll;
 }
 
-.content-padded1{
-     height: 95%;
-     overflow-y: scroll;
- }
-.content-padded2{
-    height: 95%;
-    overflow-y: scroll;
+.weui_tab_bd{
+    overflow-y: hidden!important;
 }
 
 .weui_tab_bd .weui_tab_bd_item{

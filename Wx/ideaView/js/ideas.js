@@ -19,7 +19,11 @@ function good(index) {
         //ajax
         //
         ideasJson[index].like = 1;
-        $("#idea"+index +" .img1").attr("src","../img/good.png");
+        $("#1r #idea"+index +" .img1").attr("src","../img/good.png");
+        setTimeout(function () {
+            $.toast("successful");
+        },5000);
+        // $("#idea"+index).remove();
     }
     else {
         $.toast("Unchangable");
@@ -33,7 +37,11 @@ function bad(index) {
         //ajax
         //
         ideasJson[index].like = 2;
-        $("#idea"+index +" .img2").attr("src","../img/bad.png");
+        $("#1r #idea"+index +" .img2").attr("src","../img/bad.png");
+        setTimeout(function () {
+            $.toast("successful");
+        },5000);
+        // $("#idea"+index).remove();
     }
     else {
         $.toast("Unchangable");
@@ -53,58 +61,6 @@ $(".weui_navbar_item").bind("click",function (event) {
     $this.addClass("weui_bar_item_on").siblings(".weui_navbar_item").removeClass("weui_bar_item_on");
     curPage = 0;
     ideasNum = 0;
-    // r1
-    // if(itemIndex == '0'){
-    //     // // 如果数据没有加载完
-    //     // if(!nav1LoadEnd){
-    //     //     // 解锁
-    //     //     dropload.unlock();
-    //     //     dropload.noData(false);
-    //     // }else{
-    //     //     // 锁定
-    //     //     dropload.lock('down');
-    //     //     dropload.noData();
-    //     // }
-    //     //默认点击加载
-    //     // $(".panels").eq(itemIndex).html("");
-    //     // dropload.unlock();
-    //     // dropload.noData(false);
-    //     // r2
-    // }else if(itemIndex == '1'){
-    //     // if(!nav2LoadEnd){
-    //     //     // 解锁
-    //     //     dropload.unlock();
-    //     //     dropload.noData(false);
-    //     // }else{
-    //     //     // 锁定
-    //     //     dropload.lock('down');
-    //     //     dropload.noData();
-    //     // }
-    // }
-    // //r3
-    // else if(itemIndex == '2'){
-    //     if(!nav3LoadEnd){
-    //         // 解锁
-    //         dropload.unlock();
-    //         dropload.noData(false);
-    //     }else{
-    //         // 锁定
-    //         dropload.lock('down');
-    //         dropload.noData();
-    //     }
-    // }
-    // //r4
-    // else if(itemIndex == '3'){
-    //     if(!nav4LoadEnd){
-    //         // 解锁
-    //         dropload.unlock();
-    //         dropload.noData(false);
-    //     }else{
-    //         // 锁定
-    //         dropload.lock('down');
-    //         dropload.noData();
-    //     }
-    // }
     //默认点击加载
     $(".panels").eq(itemIndex).html("");
     dropload.unlock();
@@ -307,6 +263,10 @@ function pass(index) {
         ideasJson[index].passed = 1;
     else return;
     $(".pass").eq(index).addClass("weui_btn_disabled").text("PASSED");
+    setTimeout(function () {
+        $.toast("successful");
+    },5000);
+    // $("#2r #idea"+index).remove();
 }
 
 

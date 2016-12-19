@@ -2,6 +2,7 @@
  * Created by shidian on 2016/12/13.
  */
 var ideasJson;
+
 var total;
 var curPage=0;
 var pages;
@@ -9,9 +10,6 @@ var ideasNum = 0;
 var eachPage = 7;
 var loaded = false;
 var nav1LoadEnd = false;
-var nav2LoadEnd = false;
-var nav3LoadEnd = false;
-var nav4LoadEnd = false;
 var itemIndex = 0;
 //like this idea
 function good(index) {
@@ -51,55 +49,66 @@ function check(index) {
 $(".weui_navbar_item").bind("click",function (event) {
     var $this  = $(this);
     itemIndex = $this.index();
+    $(".panels").eq(itemIndex).show().siblings('.panels').hide();
+    $this.addClass("weui_bar_item_on").siblings(".weui_navbar_item").removeClass("weui_bar_item_on");
     curPage = 0;
+    ideasNum = 0;
     // r1
-    if(itemIndex == '0'){
-        // 如果数据没有加载完
-        if(!nav1LoadEnd){
-            // 解锁
-            dropload.unlock();
-            dropload.noData(false);
-        }else{
-            // 锁定
-            dropload.lock('down');
-            dropload.noData();
-        }
-        // r2
-    }else if(itemIndex == '1'){
-        if(!nav2LoadEnd){
-            // 解锁
-            dropload.unlock();
-            dropload.noData(false);
-        }else{
-            // 锁定
-            dropload.lock('down');
-            dropload.noData();
-        }
-    }
-    //r3
-    else if(itemIndex == '2'){
-        if(!nav3LoadEnd){
-            // 解锁
-            dropload.unlock();
-            dropload.noData(false);
-        }else{
-            // 锁定
-            dropload.lock('down');
-            dropload.noData();
-        }
-    }
-    //r4
-    else if(itemIndex == '3'){
-        if(!nav4LoadEnd){
-            // 解锁
-            dropload.unlock();
-            dropload.noData(false);
-        }else{
-            // 锁定
-            dropload.lock('down');
-            dropload.noData();
-        }
-    }
+    // if(itemIndex == '0'){
+    //     // // 如果数据没有加载完
+    //     // if(!nav1LoadEnd){
+    //     //     // 解锁
+    //     //     dropload.unlock();
+    //     //     dropload.noData(false);
+    //     // }else{
+    //     //     // 锁定
+    //     //     dropload.lock('down');
+    //     //     dropload.noData();
+    //     // }
+    //     //默认点击加载
+    //     // $(".panels").eq(itemIndex).html("");
+    //     // dropload.unlock();
+    //     // dropload.noData(false);
+    //     // r2
+    // }else if(itemIndex == '1'){
+    //     // if(!nav2LoadEnd){
+    //     //     // 解锁
+    //     //     dropload.unlock();
+    //     //     dropload.noData(false);
+    //     // }else{
+    //     //     // 锁定
+    //     //     dropload.lock('down');
+    //     //     dropload.noData();
+    //     // }
+    // }
+    // //r3
+    // else if(itemIndex == '2'){
+    //     if(!nav3LoadEnd){
+    //         // 解锁
+    //         dropload.unlock();
+    //         dropload.noData(false);
+    //     }else{
+    //         // 锁定
+    //         dropload.lock('down');
+    //         dropload.noData();
+    //     }
+    // }
+    // //r4
+    // else if(itemIndex == '3'){
+    //     if(!nav4LoadEnd){
+    //         // 解锁
+    //         dropload.unlock();
+    //         dropload.noData(false);
+    //     }else{
+    //         // 锁定
+    //         dropload.lock('down');
+    //         dropload.noData();
+    //     }
+    // }
+    //默认点击加载
+    $(".panels").eq(itemIndex).html("");
+    dropload.unlock();
+    dropload.noData(false);
     // 重置
     dropload.resetload();
 });
@@ -132,6 +141,7 @@ var dropload = $('.content-padded').dropload({
                 pages = data.totalPage;
                 curPage = data.currentPage;
                 ideasJson = data.data;
+                ideasNum = 0;
                 setTimeout(function () {
 
                 },3000);
@@ -158,6 +168,7 @@ var dropload = $('.content-padded').dropload({
                     pages = data.totalPage;
                     curPage = data.currentPage;
                     ideasJson = data.data;
+                    ideasNum = 0;
                     setTimeout(function () {
 
                     },3000);
@@ -187,7 +198,9 @@ var dropload = $('.content-padded').dropload({
                 url:'../json/page'+curPage+'.json',
                 dataType:'json',
                 success:function (data) {
-                    ideasJson = data.data;
+                    // ideasJson = data.data;
+                    ideasJson = ideasJson.concat(data.data);
+                    // alert(JSON.stringify(ideasJson));
                     setTimeout(function () {
 
                     },3000);
@@ -241,17 +254,25 @@ function refreshIdeas(datas, flag){
                 imgBad = "bad";
                 imgGood = "goodn";
             }
-            panelRight += "                                <a href=\"javascript:;\" class=\"imgContainer\" onclick=\"good("+i+")\">"+
+            panelRight += "                                <a href=\"javascript:;\" class=\"imgContainer\" onclick=\"good("+(ideasNum)+")\">"+
                 "                                    <img class=\"imgIcon img1\" src=\"../img/"+ imgGood +".png\" alt=\"\">"+
                 "                                </a>"+
-                "                                <a href=\"javascript:;\" class=\"imgContainer\" onclick=\"bad("+i+")\">"+
+                "                                <a href=\"javascript:;\" class=\"imgContainer\" onclick=\"bad("+ideasNum+")\">"+
                 "                                    <img class=\"imgIcon img2\" src=\"../img/"+ imgBad +".png\" alt=\"\">"+
                 "                                </a>";
         }
         else if(itemIndex=='1'){
-            panelRight += "<a href=\"javascript:;\" class=\"weui_btn weui_btn_mini weui_btn_default\" onclick='pass('+i+')'>PASS</a>";
+            var dis = "",passed="PASS";
+            if(obj.passed == 1) {
+                dis = "weui_btn_disabled";
+                passed = "PASSED";
+            }
+
+            panelRight += "<a href=\"javascript:;\" class=\"weui_btn weui_btn_mini " + dis +
+                " weui_btn_default pass\" onclick=\"pass("+ideasNum+")\">" + passed +
+                "</a>";
         }
-        panel +=" <div class=\"weui_panel\" id=\"idea" + i + "\" data-id='" + i +
+        panel +=" <div class=\"weui_panel\" id=\"idea" + ideasNum + "\" data-id='" + ideasNum +
             "'\">"+
             "                    <div class=\"weui_panel_bd\">"+
             "                        <div class=\"weui-row weui-no-gutter\">"+
@@ -273,16 +294,19 @@ function refreshIdeas(datas, flag){
             "                </div>";
         ideasNum++;
     });
-    if(flag==0) $("#nav"+itemIndex+" .panels").html(panel);
-    else $("#nav"+itemIndex+" .panels").append(panel);
+    if(flag==0) $(".panels").eq(itemIndex).html(panel);
+    else $(".panels").eq(itemIndex).append(panel);
     return true;
 }
 
+function pass(index) {
 
+    // alert($("."));
+    //ajax
+    if(ideasJson[index].passed==0)
+        ideasJson[index].passed = 1;
+    else return;
+    $(".pass").eq(index).addClass("weui_btn_disabled").text("PASSED");
+}
 
-// $("#r1").click();
-// function test() {
-//     $.alert(JSON.stringify(ideasJson));
-// }
-// test();
 

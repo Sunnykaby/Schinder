@@ -47,9 +47,11 @@ body {
     width: 70%;
 }
 .panelRight{
+    display: flex;
     position: relative;
     right: 0;
     width: 30%;
+    height: 100%;
 }
 
 .imgIcon{
@@ -66,6 +68,7 @@ body {
 
 .textArea {
     -webkit-line-clamp:100!important;
+    font-size:16px!important;
 }
 .panels{
     /*height: 95%;*/
@@ -73,6 +76,7 @@ body {
 }
 .content-padded{
     height: 95%;
+    display: block;
     overflow-y: scroll;
 }
 
@@ -82,4 +86,8 @@ body {
 
 .weui_tab_bd .weui_tab_bd_item{
     overflow-y: hidden!important;
+}
+
+.pass{
+    margin-top: 25%;
 }

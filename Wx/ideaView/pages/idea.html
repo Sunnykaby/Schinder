@@ -22,31 +22,31 @@
         <div class="weui_cell">
             <div class="weui_cell_hd"><label class="weui_label">ID</label></div>
             <div class="weui_cell_bd">
-                <p class="label-text">500031</p>
+                <p class="label-text" id="id">500031</p>
             </div>
         </div>
         <div class="weui_cell">
             <div class="weui_cell_hd"><label class="weui_label">Name</label></div>
             <div class="weui_cell_bd">
-                <p class="label-text">500031</p>
+                <p class="label-text" id="name">500031</p>
             </div>
         </div>
         <div class="weui_cell">
             <div class="weui_cell_hd"><label class="weui_label">Dept</label></div>
             <div class="weui_cell_bd">
-                <p class="label-text">This is a man.</p>
+                <p class="label-text" id="dept">This is a man.</p>
             </div>
         </div>
         <div class="weui_cell">
             <div class="weui_cell_hd"><label class="weui_label">Phone</label></div>
             <div class="weui_cell_bd">
-                <p class="label-text">15677826358</p>
+                <p class="label-text" id="phone">15677826358</p>
             </div>
         </div>
         <div class="weui_cell">
             <div class="weui_cell_hd"><label class="weui_label">Filed</label></div>
             <div class="weui_cell_bd">
-                <p class="label-text">Elevator/Escalator</p>
+                <p class="label-text" id="filed">Elevator/Escalator</p>
             </div>
         </div>
     </div>
@@ -86,10 +86,10 @@
     <div class="weui_panel">
         <div class="weui_panel_bd">
             <div class="weui_media_box weui_media_text">
-                <h4 class="weui_media_title">Idea Title</h4>
-                <p class="weui_media_desc textArea">More than 25 years have passed since the Soviet Union collapsed, which resulted in 15 countries being free from the central administration and the communist ideology. The three Baltic states — Estonia, Latvia, and Lithuania — were the first to declare independence and officially secede from the USSR.</p>
+                <h4 class="weui_media_title" id="title">Idea Title</h4>
+                <p class="weui_media_desc textArea" id="detail">More than 25 years have passed since the Soviet Union collapsed, which resulted in 15 countries being free from the central administration and the communist ideology. The three Baltic states — Estonia, Latvia, and Lithuania — were the first to declare independence and officially secede from the USSR.</p>
                 <ul class="weui_media_info">
-                    <li class="weui_media_info_meta">2016-12-10</li>
+                    <li class="weui_media_info_meta" id="time">2016-12-10</li>
                     <li class="weui_media_info_meta weui_media_info_meta_extra"><a href="javascript:;" id="pb1">Attachment</a></li>
                 </ul>
             </div>
@@ -104,31 +104,62 @@
 <script src="../js/jquery-weui.min.js"></script>
 <script src="../js/swiper.min.js"></script>
 <script>
+    var idea;
+    var imgs;
+    var pb1;
     $(function() {
         FastClick.attach(document.body);
     });
-    var pb1 = $.photoBrowser({
-        items: [
-            "../demos/images/swiper-1.jpg",
-            "../demos//images/swiper-2.jpg",
-            "../demos/images/swiper-3.jpg",
-            "../demos/images/swiper-4.jpg"
-        ],
+    $(function () {
+        $.ajax({
+            type:'GET',
+            url:'../json/idea.json',
+            dataType:'json',
+            success:function (data) {
+                idea = data;
+                setTimeout(function () {
 
-        onSlideChange: function(index) {
-            console.log(this, index);
-        },
+                },3000);
+                loadIdea();
+                pb1 = $.photoBrowser({
+                    items: [
+                        idea.imgs[0],
+                        idea.imgs[1],
+                        idea.imgs[2],
+                        idea.imgs[3]
+                    ],
 
-        onOpen: function() {
-            console.log("onOpen", this);
-        },
-        onClose: function() {
-            console.log("onClose", this);
-        }
+                    onSlideChange: function(index) {
+                        console.log(this, index);
+                    },
+
+                    onOpen: function() {
+                        console.log("onOpen", this);
+                    },
+                    onClose: function() {
+                        console.log("onClose", this);
+                    }
+                });
+            },
+            error:function () {
+                alert('Ajax Error!');
+            }
+        });
     });
+
     $("#pb1").click(function() {
         pb1.open();
     });
+    function loadIdea() {
+        $("#id").text(idea.id);
+        $("#name").text(idea.name);
+        $("#dept").text(idea.dept);
+        $("#time").text(idea.time);
+        $("#detail").text(idea.detail);
+        $("#title").text(idea.idea);
+        $("#phone").text(idea.phone);
+        imgs = idea.imgs;
+    }
 </script>
 
 </body>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Idea List</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--   import css -->
+    <link rel="stylesheet" href="Contents/weui.min.css">
+    <link rel="stylesheet" href="Contents/jquery-weui.min.css">
+    <link rel="stylesheet" href="Contents/common.css">
+    <link rel="stylesheet" href="Contents/dropload.css">
+</head>
+<body ontouchstart>
+<div class="weui_tab">
+    <div class="weui_tab_bd">
+        <div class="page__hd">
+            <h6 class="page__title">Idea List</h6>
+        </div>
+        <div class="content-padded">
+                <div class="panels" id="1r">
+                </div>
+                <div class="panels" id="2r">
+                </div>
+                <div class="panels" id="3r">
+                </div>
+                <div class="panels" id="4r">
+                </div>
+        </div>
+    </div>
+    <div class="weui_navbar">
+        <a id="r1" href="javascript:;" class="weui_navbar_item weui_bar_item_on">
+            R1
+        </a>
+        <a id="r2" href="javascript:;" class="weui_navbar_item">
+            R2
+        </a>
+        <a id="r3" href="javascript:;" class="weui_navbar_item">
+            R3
+        </a>
+        <a id="r4" href="javascript:;" class="weui_navbar_item">
+            R4
+        </a>
+    </div>
+</div>
+<!-- import js-->
+<script src="Scripts/jquery-2.1.4.js"></script>
+<script src="Scripts/fastclick.js"></script>
+<script src="Scripts/jquery-weui.min.js"></script>
+<script src="Scripts/dropload.js"></script>
+<script src="Scripts/ideas.js"></script>
+<script>
+    $(function() {
+        FastClick.attach(document.body);
+    });
+</script>
+</body>
+</html>

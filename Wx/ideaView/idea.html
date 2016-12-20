@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Idea Info</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--   import css -->
+    <link rel="stylesheet" href="Contents/weui.min.css">
+    <link rel="stylesheet" href="Contents/jquery-weui.min.css">
+    <link rel="stylesheet" href="Contents/common.css">
+</head>
+<body>
+<div class="page">
+    <div class="page__hd">
+        <h3 class="page__title">Innovation Submission Form</h3>
+        <p class="page__desc"></p>
+    </div>
+    <div class="weui_cells_title">General Information</div>
+    <div class="weui_cells weui_cells_form">
+        <div class="weui_cell">
+            <div class="weui_cell_hd"><label class="weui_label">ID</label></div>
+            <div class="weui_cell_bd">
+                <p class="label-text" id="id">500031</p>
+            </div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_hd"><label class="weui_label">Name</label></div>
+            <div class="weui_cell_bd">
+                <p class="label-text" id="name">500031</p>
+            </div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_hd"><label class="weui_label">Dept</label></div>
+            <div class="weui_cell_bd">
+                <p class="label-text" id="dept">This is a man.</p>
+            </div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_hd"><label class="weui_label">Phone</label></div>
+            <div class="weui_cell_bd">
+                <p class="label-text" id="phone">15677826358</p>
+            </div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_hd"><label class="weui_label">Filed</label></div>
+            <div class="weui_cell_bd">
+                <p class="label-text" id="filed">Elevator/Escalator</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="weui_cells_title">Discription Of Idea</div>
+    <div class="weui_panel">
+        <div class="weui_panel_bd">
+            <div class="weui_media_box weui_media_text">
+                <h4 class="weui_media_title" id="title">Idea Title</h4>
+                <p class="weui_media_desc textArea" id="detail">More than 25 years have passed since the Soviet Union collapsed, which resulted in 15 countries being free from the central administration and the communist ideology. The three Baltic states — Estonia, Latvia, and Lithuania — were the first to declare independence and officially secede from the USSR.</p>
+                <ul class="weui_media_info">
+                    <li class="weui_media_info_meta" id="time">2016-12-10</li>
+                    <li class="weui_media_info_meta weui_media_info_meta_extra"><a href="javascript:;" id="pb1">Attachment</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- import js-->
+<script src="Scripts/jquery-2.1.4.js"></script>
+<script src="Scripts/fastclick.js"></script>
+<script src="Scripts/jquery-weui.min.js"></script>
+<script src="Scripts/swiper.min.js"></script>
+<script>
+    var idea;
+    var imgs;
+    var pb1;
+    var id;
+    $(function() {
+        FastClick.attach(document.body);
+    });
+    function getURLParameter(name) {
+        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+    }
+
+
+
+    $(function () {
+        id = getURLParameter('idea');
+        $.toast(id);
+        $.ajax({
+            type:'GET',
+            url:'Contents/idea.json',
+            dataType:'json',
+            success:function (data) {
+                idea = data;
+                setTimeout(function () {
+
+                },3000);
+                loadIdea();
+                pb1 = $.photoBrowser({
+                    items: [
+                        imgs
+                    ],
+
+                    onSlideChange: function(index) {
+                        console.log(this, index);
+                    },
+
+                    onOpen: function() {
+                        console.log("onOpen", this);
+                    },
+                    onClose: function() {
+                        console.log("onClose", this);
+                    }
+                });
+            },
+            error:function () {
+                alert('Ajax Error!');
+            }
+        });
+    });
+
+    $("#pb1").click(function() {
+        pb1.open();
+    });
+    function loadIdea() {
+        $("#id").text(idea.id);
+        $("#name").text(idea.name);
+        $("#dept").text(idea.dept);
+        $("#time").text(idea.time);
+        $("#detail").text(idea.detail);
+        $("#title").text(idea.idea);
+        $("#phone").text(idea.phone);
+        for(var i = 0; i < idea.imgs.length; i++){
+            imgs+=idea.imgs[i];
+            if(i == (idea.imgs.length-1)) imgs+=",";
+        }
+
+    }
+</script>
+
+</body>
+</html>

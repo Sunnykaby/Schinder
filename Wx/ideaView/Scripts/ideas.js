@@ -110,7 +110,7 @@ var dropload = $('.content-padded').dropload({
         //first loading
         $.ajax({
             type:'GET',
-            url:'Contents/page1.json',
+            url:'Contents/page0.json',
             dataType:'json',
             success:function (data) {
                 total = data.total;
@@ -118,13 +118,16 @@ var dropload = $('.content-padded').dropload({
                 curPage = data.currentPage;
                 ideasJson = data.data;
                 ideasNum = 0;
-                setTimeout(function () {
-
-                },3000);
                 refreshIdeas(data.data,0);
                 me.resetload();
-                me.unlock();
-                me.noData(false);
+                if(ideasNum>=total){
+                    me.lock();
+                    me.noData();
+                }
+                else {
+                    me.unlock();
+                    me.noData(false);
+                }
             },
             error:function (xhr, type) {
                 alert('Ajax Error!');
@@ -137,7 +140,7 @@ var dropload = $('.content-padded').dropload({
             //if first time
             $.ajax({
                 type:'GET',
-                url:'Contents/page1.json',
+                url:'Contents/page0.json',
                 dataType:'json',
                 success:function (data) {
                     total = data.total;
@@ -149,8 +152,14 @@ var dropload = $('.content-padded').dropload({
 
                     },3000);
                     refreshIdeas(data.data,0);
-                    me.unlock();
-                    me.noData(false);
+                    if(ideasNum>=total){
+                        me.lock();
+                        me.noData();
+                    }
+                    else {
+                        me.unlock();
+                        me.noData(false);
+                    }
                     me.resetload();
                 },
                 error:function (xhr, type) {

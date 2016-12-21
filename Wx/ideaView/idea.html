@@ -73,7 +73,7 @@
 <script src="Scripts/swiper.min.js"></script>
 <script>
     var idea;
-    var imgs;
+    var imgs = new  Array();
     var pb1;
     var id;
     $(function() {
@@ -99,9 +99,9 @@
                 },3000);
                 loadIdea();
                 pb1 = $.photoBrowser({
-                    items: [
+                    items:
                         imgs
-                    ],
+                    ,
 
                     onSlideChange: function(index) {
                         console.log(this, index);
@@ -132,11 +132,11 @@
         $("#detail").text(idea.detail);
         $("#title").text(idea.idea);
         $("#phone").text(idea.phone);
+        if(idea.filed==0) $("#filed").text("Elevator");
+        else if(idea.filed==1) $("#filed").text("Escalator");
         for(var i = 0; i < idea.imgs.length; i++){
-            imgs+=idea.imgs[i];
-            if(i == (idea.imgs.length-1)) imgs+=",";
+            imgs[i] = idea.imgs[i];
         }
-
     }
 </script>
 

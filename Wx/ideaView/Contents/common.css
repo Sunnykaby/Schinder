@@ -1,0 +1,97 @@
+html {
+    height: 100%;    
+}
+
+body {
+    font-size: 14px;
+    font-family: verdana,helvetica,arial,sans-serif;
+    height: 100%;
+}
+
+.panel-body {
+    font-size: 14px;
+}
+
+.textbox
+.textbox-text {
+    font-size: 14px;
+}
+
+.l-btn-text {
+    font-size: 14px;
+}
+
+.page__hd {
+    padding: 10px;
+    background-color: #EDEDED;
+}
+
+.weui_textarea {
+    font-size: 14px;
+    font-family: verdana,helvetica,arial,sans-serif;
+}
+
+#imageList {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.page__title{
+    text-align: center;
+}
+.label-text{
+    text-align: center;
+}
+
+.panelLeft{
+    width: 70%;
+}
+.panelRight{
+    display: flex;
+    position: relative;
+    right: 0;
+    width: 30%;
+    height: 100%;
+}
+
+.imgIcon{
+    width: 90%;
+    height: auto;
+}
+
+.imgContainer{
+    float: left;
+    width: 30%;
+    margin-left:10%;
+    margin-top:23%;
+}
+
+.textArea {
+    -webkit-line-clamp:100!important;
+    font-size:16px!important;
+}
+.panels{
+    /*height: 95%;*/
+    /*overflow-y: scroll;*/
+}
+.content-padded{
+    height: 95%;
+    display: block;
+    overflow-y: scroll;
+}
+
+.weui_tab_bd{
+    overflow-y: hidden!important;
+}
+
+.weui_tab_bd .weui_tab_bd_item{
+    overflow-y: hidden!important;
+}
+
+.pass{
+    margin-top: 25%;
+}
+
+.weui_media_box .weui_media_desc{
+    font-size: 15px!important;
+}

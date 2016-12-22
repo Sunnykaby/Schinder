@@ -12,65 +12,32 @@ var loaded = false;
 var nav1LoadEnd = false;
 var itemIndex = 0;
 //like this idea
-function good(index) {
-    if(check(index))
-    {
-        $.toast("Good");
-        //ajax
-        $.ajax({
-            type:'GET',
-            url:'/like/type=1&idea=' + $("#1r #idea"+index).data("data-id"),
-            dataType:'json',
-            success:function (data) {
-                ideasJson[index].like = 1;
-                $("#1r #idea"+index +" .img1").attr("src","Contents/good.png");
-            },
-            error:function (xhr, type) {
-                alert('Ajax Error!');
-            }
-        });
-        //
-        // setTimeout(function () {
-        //     $.toast("successful");
-        // },5000);
-        // $("#idea"+index).remove();
-    }
-    else {
-        $.toast("Unchangable");
-    }
-}
-//unlike this idea
-function bad(index) {
-    if(check(index))
-    {
-        $.toast("Bad");
-        //ajax
-        $.ajax({
-            type:'GET',
-            url:'/like/type=0&idea=' + $("#1r #idea"+index).data("data-id"),
-            dataType:'json',
-            success:function (data) {
-                ideasJson[index].like = 2;
-                $("#1r #idea"+index +" .img2").attr("src","Contents/bad.png");
-            },
-            error:function (xhr, type) {
-                alert('Ajax Error!');
-            }
-        });
-        //
-        // setTimeout(function () {
-        //     $.toast("successful");
-        // },5000);
-        // $("#idea"+index).remove();
-    }
-    else {
-        $.toast("Unchangable");
-    }
-}
-//    check whether this idea evaluated
-function check(index) {
-    if(ideasJson[index].like == 0) return true;
-    else return false;
+function like(index) {
+    //ajax
+    $.ajax({
+        type:'GET',
+        url:'Contents/idea.json',
+        dataType:'json',
+        success:function (data) {
+            // ideasJson[index].like = !ideasJson[index].like;
+            // ideasJson[index].status = data.status;
+            // ideasJson[index].likes = data.likes;
+            ideasJson[index].like = !ideasJson[index].like;
+            ideasJson[index].status = 2;
+            ideasJson[index].likes = "a,b,c,d,e,f";
+            freshIdea(index,ideasJson[index].status,ideasJson[index].likes,ideasJson[index].like)
+        },
+        error:function (xhr, type) {
+            alert('Ajax Error!');
+        }
+    });
+
+    //
+    // setTimeout(function () {
+    //     $.toast("successful");
+    // },5000);
+    // $("#idea"+index).remove();
+
 }
 
 //R onclick function
@@ -221,6 +188,7 @@ function refreshIdeas(datas, flag){
     var panel = "";
     $.each(datas,function (i,obj) {
         var panelRight="";
+        var panelBottom="";
         var imgGood;
         var imgBad;
         if(itemIndex == '0'){
@@ -239,12 +207,12 @@ function refreshIdeas(datas, flag){
                 imgBad = "bad";
                 imgGood = "goodn";
             }
-            panelRight += "                                <a href=\"javascript:;\" class=\"imgContainer\" onclick=\"good("+(ideasNum)+")\">"+
+            panelRight += "                                <a href=\"javascript:;\" class=\"imgContainer\" onclick=\"like("+(ideasNum)+")\">"+
                 "                                    <img class=\"imgIcon img1\" src=\"Contents/"+ imgGood +".png\" alt=\"\">"+
                 "                                </a>"+
-                "                                <a href=\"javascript:;\" class=\"imgContainer\" onclick=\"bad("+ideasNum+")\">"+
-                "                                    <img class=\"imgIcon img2\" src=\"Contents/"+ imgBad +".png\" alt=\"\">"+
-                "                                </a>";
+                "                                <p id='status' href=\"javascript:;\" class=\"imgContainer\">"+
+                "R1"+
+                "                                </p>";
         }
         else if(itemIndex=='1'){
             var dis = "",passed="PASS";
@@ -257,6 +225,24 @@ function refreshIdeas(datas, flag){
                 " weui_btn_default pass\" onclick=\"pass("+ideasNum+")\">" + passed +
                 "</a>";
         }
+        else if(itemIndex=='2'){
+            var dis = "",passed="PASS";
+            if(obj.passed == 1) {
+                dis = "weui_btn_disabled";
+                passed = "PASSED";
+            }
+
+            panelRight += "<a href=\"javascript:;\" class=\"weui_btn weui_btn_mini " + dis +
+                " weui_btn_default pass\" onclick=\"pass("+ideasNum+")\">" + passed +
+                "</a>";
+        }
+        panelBottom = "<div class=\"weui_cell\">"+
+            "                            <div class=\"weui_cell_hd\"><img class=\"like-img\" src=\"Contents/good.png\"></div>"+
+            "                            <div class=\"weui_cell_bd weui_cell_primary\">"+
+            "                                <p id=\"likes\">" +obj.likes+
+            "</p>"+
+            "                            </div>"+
+            "                        </div>";
         panel +=" <div class=\"weui_panel\" id=\"idea" + ideasNum + "\" data-id='" + obj.id +
             "'\">"+
             "                    <div class=\"weui_panel_bd\">"+
@@ -268,15 +254,13 @@ function refreshIdeas(datas, flag){
             "                                       </a></p><ul class=\"weui_media_info\">"+
             "                                        <li class=\"weui_media_info_meta\">" + obj.name +
             "                                        </li><li class=\"weui_media_info_meta\">"+ obj.time +"</li>"+
-            "                                        <li class=\"weui_media_info_meta weui_media_info_meta_extra\"><a href=\"idea.html?idea=" + obj.id +
-            "\">详细信息</a></li>"+
             "                                    </ul>"+
             "                                </div>"+
             "                            </div>"+
             "                            <div class=\"panelRight\">"+ panelRight
             +
             "                            </div>"+
-            "                        </div>"+
+            "                        </div>"+panelBottom+
             "                    </div>"+
             "                </div>";
         ideasNum++;
@@ -294,7 +278,7 @@ function pass(index) {
     //ajax
     $.ajax({
         type:'GET',
-        url:'/pass/idea=' + $("#2r #idea"+index).data("data-id"),
+        url:'Contents/idea.json',
         dataType:'json',
         success:function (data) {
             ideasJson[index].passed = 1;
@@ -304,12 +288,17 @@ function pass(index) {
             alert('Ajax Error!');
         }
     });
-    //
+}
 
-    // setTimeout(function () {
-    //     $.toast("successful");
-    // },5000);
-    // $("#2r #idea"+index).remove();
+function freshIdea(index, status, likes, like) {
+    // var likeHtml = "", likesHtml = "",
+    //     status = "";
+    if(like) $("#1r #idea"+index +" .img1").attr("src","Contents/good.png");
+    else $("#1r #idea"+index +" .img1").attr("src","Contents/goodn.png");
+
+    if(status==2) $("#1r #idea"+index +" #status").text("R2");
+
+    $("#1r #idea"+index +" #likes").text(likes);
 }
 
 

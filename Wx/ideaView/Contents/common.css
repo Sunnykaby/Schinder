@@ -63,7 +63,23 @@ body {
     float: left;
     width: 30%;
     margin-left:10%;
-    margin-top:23%;
+    margin-top:20%;
+    font-size: 25px;
+    color: #cc0000;
+    font-weight: bold;
+}
+.passContainer{
+    float: left;
+    width: 40%;
+    margin-left:10%;
+    /*margin-top: 30%;*/
+    font-size: 20px;
+}
+.pass-status{
+    margin: 0 auto;
+}
+.pass-btn{
+
 }
 
 .textArea {
@@ -95,3 +111,23 @@ body {
 .weui_media_box .weui_media_desc{
     font-size: 15px!important;
 }
+/*for like panel*/
+.like{
+    width:100%;
+
+}
+.like-img{
+    width: 23px;
+    height: auto;
+    margin-right: 10px;
+}
+.weui_panel:after{
+    border-color: #a4a8ad!important;
+}
+.weui_panel:before{
+    border-color: #a4a8ad!important;
+}
+
+
+
+
